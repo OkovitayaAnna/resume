@@ -453,9 +453,10 @@ li {
 /* Скрыть изображения по умолчанию */
 .mySlides {
   display: none;
+  width: 500px;
 }
 
-/* Вперед иназад кнопки */
+/* Вперед и назад кнопки */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -546,6 +547,7 @@ li {
   .column img {
 	opacity: 0.8;
 	cursor: pointer;
+	width: 200px;
   }
   
   .column img:hover {
