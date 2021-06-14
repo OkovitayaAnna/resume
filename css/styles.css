@@ -1,0 +1,586 @@
+@keyframes skills-level {
+	from {
+		width: 0%;
+		
+	}
+	to {
+		width: 10%;
+	}
+}
+
+@keyframes skills-level-ok {
+	from {
+		width: 0%;
+		background-color: #661a00;
+	}
+	to {
+		width: 60%;
+		background-color: #ff6633;
+	}
+}
+
+.skills-level:hover {
+	animation-name: skills-level-ok;
+	animation-duration: 4s;
+}
+
+.skills-level-ok:hover {
+	animation-name: skills-level;
+	animation-duration: 4s;
+}
+
+h1 {
+	border: 1px solid #d2cece;
+	color: #333333;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+h2 {
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+a {
+	color: #333333;
+}
+
+.accordion {
+	background-color: #eeeeee;
+	border: none;
+	border-radius: 5px;
+	color: #333333;
+	cursor: pointer;
+	outline: none;
+	padding: 18px;
+	text-align: center;
+	transition: 0.4s;
+}
+
+.active, .accordion:hover {
+	background-color: #ccc;
+}
+
+.panel {
+	padding: 0 18px;
+	background-color: white;
+	color: #333333;
+	font-size: 17px;
+	display: none;
+	overflow: hidden;
+	text-align: center;
+	width: 78%;
+}
+
+.biography {
+	display: flex;
+	margin: 0px;
+	padding: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.border {
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px;
+}
+
+.btn {
+	color: #333333;
+	background-color: #ff794d;
+	border: 1px solid #333333;
+	border-radius: 10px;
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	width: 150px;
+}
+
+.contacts {
+	color: #333333;
+	margin-left: 5px;
+	vertical-align: super;
+}
+
+.courses {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	width: 100%;
+}
+
+.diploms {
+	padding: 10px;
+	margin: 10px;
+}
+
+.experience {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
+}
+
+.flex {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+}
+
+.form {
+	background-color: #ff794d;
+	border: 1px solid #333333;
+	border-radius: 5px;
+	color: #333333;
+	margin-left: 10px;
+}
+
+.hb {
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 5px;
+}
+
+.icons {
+	height: 25px;
+	width: 25px;
+}
+
+.information-about-me {
+	border-radius: 10px;
+	color: #333333;
+	display: flex;
+	flex-direction: row;
+	font-size: 19px;
+	justify-content: left;
+	text-align: center;
+	width: 120%;
+}
+
+.information-about-school {
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+}
+
+.information {
+	display: none;
+}
+
+.grades {
+	font-size: 15px;
+}
+
+.languages {
+	border: 1px solid #d2cece;
+	color: #333333;
+	font-size: 20px;
+	width: 50%;
+}
+
+.left {
+	margin-top: 28px;
+}
+
+li {
+	list-style-type: none;
+}
+
+.main-container {
+	align-items: center;
+	background-color: #FFA07A;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+}
+
+.my-name {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50%;
+}
+
+.my-photo {
+	border-radius: 10px;
+	margin-right: 40px;
+	width: 400px;
+}
+
+.none {
+	color: #ff9f80;
+}
+
+.none-marging-and-padding {
+	margin: 0px;
+	padding: 0px;
+}
+
+.phone {
+	border: 1px solid #d2cece;
+	width: 50%;
+}
+
+.phone-2 {
+	border: 1px solid #d2cece;
+	width: 50%;
+	display: none;
+}
+
+.programming-language {
+	color: #333333;
+	font-weight: bold;
+	text-align: left;
+}
+
+.right {
+	margin-top: 28px;
+}
+
+.skills {
+	width: 100%;
+}
+
+.skills-level {
+	border-radius: 10px;
+	color: #ffffff;
+	font-size: 12px;
+	text-align: center;
+	width: 10%;
+	animation-name: skills-level;
+	animation-duration: 4s;
+}
+
+.skills-level-ok {
+	width: 60%;
+	animation-name: skills-level-ok;
+	animation-duration: 4s;
+}
+
+.school {
+	background-color: #ff8c66;
+	border: 1px solid #d2cece;
+	color: #333333;
+	display: flex;
+	flex-direction: row;
+	font-size: 15px;
+	text-align: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.school-studing {
+	text-align: left;
+	margin: 5px;
+	width: 50%;
+}
+
+.stars {
+	width: 70px;
+}
+
+.studing {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 5px;
+}
+
+.university {
+	text-align: right;
+	margin: 5px;
+	width: 50%;
+}
+
+.what {
+	display: none;
+}
+
+.what-i-learned {
+	background-color: #ff9f80;
+	border: 1px solid #d2cece;
+	border-radius: 10px;
+	color: #333333;
+	font-size: 33px;
+	text-align: center;
+	width: 82%;
+}
+
+.work {
+	margin: 20px;;
+}
+
+@media screen and (max-width: 1200px) {
+	.main-container {
+		width: 960px;
+	}
+	.my-photo {
+		width: 170px;
+	}
+	.what-i-learned {
+		font-size: 28px;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	h1 {
+		font-size: 30px;
+	}
+	.main-container {
+		width: 720px;
+	}
+	.my-photo {
+		width: 130px;
+	}
+	.information-about-me {
+		font-size: 15px;
+	}
+	.what-i-learned {
+		font-size: 20px;
+	}
+	.grades {
+		font-size: 12px;
+	}
+	.panel {
+		font-size: 14px;
+	}
+	.programming-language {
+		font-size: 12px;
+	}
+	.skills-level {
+		font-size: 10px;
+	}
+	.languages {
+		font-size: 17px;
+	}
+	.stars {
+		width: 60px;
+	}
+	.contacts {
+		font-size: 12px;
+	}
+	.icons {
+		height: 20px;
+		width: 20px;
+	}
+	.school {
+		flex-direction: column;
+	}
+	.grades {
+		width: 310%;
+	}
+	.panel {
+		width: 291%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.main-container {
+		width: 540px;
+	}
+	.what-i-learned {
+		font-size: 17px;
+	}
+	.my-photo {
+		width: 100px;
+	}
+	h1 {
+		font-size: 25px;
+	}
+	.form {
+		font-size: 12px;
+	}
+	.btn {
+		font-size: 12px;
+	}
+	.panel {
+		width: 285%;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.main-container {
+		width: 90%;
+	}
+	.what-i-learned {
+		font-size: 15px;
+	}
+	.flex {
+		display: none;
+	}
+	.phone-2 {
+		display: block;
+	}
+	.contacts {
+		font-size: 10px;
+	}
+	.information-about-me {
+		display: flex;
+		font-size: 15px;
+		width: 100%;
+		align-items: center;
+	}
+	.what-i-learned {
+		display: none;
+		width: 100%;
+	}
+	.what {
+		display: block;
+	}
+	.panel {
+		width: 280%;
+	}
+}
+
+* {box-sizing:border-box}
+
+/* Контейнер слайд-шоу */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Скрыть изображения по умолчанию */
+.mySlides {
+  display: none;
+}
+
+/* Вперед иназад кнопки */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Положение "next кнопки" справа */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* При наведении курсора добавьте черный цвет фона с немного прозрачным */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Подпись текст */
+.text {
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Номер текста (1/3 и т.д.) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Точки/пули/индикаторы */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Исчезающая анимация */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+  /* Сетка: четыре одинаковых столбца, которые плавают рядом друг с другом */
+  .column {
+	float: left;
+	width: 25%;
+	padding: 10px;
+  }
+  
+  /* Стиль изображения внутри сетки */
+  .column img {
+	opacity: 0.8;
+	cursor: pointer;
+  }
+  
+  .column img:hover {
+	opacity: 1;
+  }
+  
+  /* Очистить поплавки после столбцов */
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+  /* Расширяющийся контейнер изображений (позиционирование необходимо для размещения кнопки закрытия и текста) */
+  .container {
+	position: relative;
+	display: none;
+	margin-left: auto;
+    margin-right: auto;
+	width: 400px;
+  }
+  
+  /* Расширение текста изображения */
+  #imgtext {
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	font-size: 20px;
+  }
+  
+  /* Закрываемая кнопка внутри изображения */
+  .closebtn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	font-size: 35px;
+	cursor: pointer;
+  }
