@@ -1,31 +1,5 @@
-@keyframes skills-level {
-	from {
-		width: 0%;
-		
-	}
-	to {
-		width: 10%;
-	}
-}
-
-@keyframes skills-level-ok {
-	from {
-		width: 0%;
-		background-color: #661a00;
-	}
-	to {
-		width: 60%;
-		background-color: #ff6633;
-	}
-}
-
 .skills-level:hover {
 	animation-name: skills-level-ok;
-	animation-duration: 4s;
-}
-
-.skills-level-ok:hover {
-	animation-name: skills-level;
 	animation-duration: 4s;
 }
 
@@ -126,6 +100,20 @@ a {
 	width: 100%;
 }
 
+.first {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+	margin-top: 20px;
+	width: 50%;
+}
+
+.second {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
 .flex {
 	display: flex;
 	flex-direction: row;
@@ -216,6 +204,13 @@ li {
 	width: 400px;
 }
 
+.my-photo2 {
+	border-radius: 10px;
+	display: none;
+	margin-right: 40px;
+	width: 200px;
+}
+
 .none {
 	color: #ff9f80;
 }
@@ -223,6 +218,17 @@ li {
 .none-marging-and-padding {
 	margin: 0px;
 	padding: 0px;
+}
+
+.orange {
+	margin: 5px;
+	width: 20px;
+}
+
+.orange-main {
+	background-color: #FFA07A;
+	display: flex;
+	flex-direction: column;
 }
 
 .phone {
@@ -251,20 +257,13 @@ li {
 }
 
 .skills-level {
+	color: white; 
+	text-align: center; 
 	border-radius: 10px;
-	color: #ffffff;
-	font-size: 12px;
-	text-align: center;
-	width: 10%;
 	animation-name: skills-level;
 	animation-duration: 4s;
 }
 
-.skills-level-ok {
-	width: 60%;
-	animation-name: skills-level-ok;
-	animation-duration: 4s;
-}
 
 .school {
 	background-color: #ff8c66;
@@ -317,6 +316,19 @@ li {
 
 .work {
 	margin: 20px;;
+}
+
+.y {
+	display: none;
+}
+
+.yellow {
+	margin: 5px;
+	width: 20px;
+}
+
+.yellow-main {
+	background-color: #FFFACD;
 }
 
 @media screen and (max-width: 1200px) {

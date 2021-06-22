@@ -32,6 +32,9 @@ function myFunction(imgs) {
 }
 
 
+
+
+
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
@@ -50,3 +53,5 @@ function showSlides(n) {
 
 include("js/accordion.js");
 include("js/skills.colors.js");
+include("js/skills.js");
+include("js/circles.js");

@@ -11,24 +11,57 @@
 </head>
 
 <body>
-	<div class="main-container border">
+	<div class="main-container border orange-main" id="main">
+		<img src="images/my-photo.jpg" class="my-photo2" id="my-photo2">
 		<div class="flex">
-			<div class="information-about-me border">
-				<div> <img src="images/my-photo.jpg" class="my-photo"> </div>
-				<div class="my-name"> 
+			<div class="information-about-me border" id="information-about-me">
+				<div id="my-photo"> <img src="images/my-photo.jpg" class="my-photo"> </div>
+				<div class="my-name" id="my-name"> 
+					<div class="flex">
+						<img src="images/orange-circle.png" class="orange" id="orange">
+						<img src="images/yellow-circle.png" class="yellow" id="yellow">
+					</div>
 					<h2> ФИО </h2>
-					<p class="hb"> дата рождения </p>
+					<p class="hb" id="hb"> дата рождения </p>
 					<p class="none-marging-and-padding"> специальность </p>
-					<p class="biography"> немного биографии: бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла</p>
-					<p class="contacts none-marging-and-padding">
+					<p class="biography" id="biography"> немного биографии: бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла</p>
+					<div class="contacts none-marging-and-padding" id="contacts">
 						<p class="viber none-marging-and-padding">5878337895784</p>
 						<p class="telegram none-marging-and-padding">6456789567</p>
 						<p class="email none-marging-and-padding">dfoihj@gmail.com</p>
-					</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="flex">
+
+
+
+		<div class="flex y" id="y">
+			<div class="first">
+				<div class="contacts none-marging-and-padding">
+					<p class="viber none-marging-and-padding">5878337895784</p>
+					<p class="telegram none-marging-and-padding">6456789567</p>
+					<p class="email none-marging-and-padding">dfoihj@gmail.com</p>
+				</div>
+				<p class="biography"> немного биографии: бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла</p>
+			</div>
+			<div class="second">
+				<div class="experience border">
+					<h2> Образование, опыт работы </h2>
+					<div class="work">  
+							<div class="studing">
+								<div class="school-studing"> Школа, годы </div>
+								<div class="university"> Университет, факультет, годы </div>
+							</div>
+							<div class="work-years"> Опыт работы - ... в ...</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="flex" id="o">
 			<div class="experience border">
 				<h2> Образование, опыт работы </h2>
 				<div class="work">  
@@ -41,7 +74,7 @@
 			</div>
 		</div>
 		<div class="flex">
-			<div class="courses border">
+			<div class="courses border" id="courses">
 				<div class="left">
 					<p> бла бла бла бла бла бла бла бла бла бла бла </p>
 					<p class="none"> ----------------------------------------------- </p>
@@ -63,26 +96,21 @@
 		<div class="flex">
 			<div class="skills border"> 
 				<h2> Мои навыки </h2>
-				<dl>
-					<div class="my-programming-skills">
-						<dt class="programming-language">HTML</dt>
-						<dd>
-							<div class="skills-level skills-level-ok">60%</div>
-						</dd>
-					</div>
-					<div class="my-programming-skills">
-						<dt class="programming-language">CSS</dt>
-						<dd>
-							<div class="skills-level skills-level-ok">60%</div>
-						</dd>
-					</div>
-					<div class="my-programming-skills">
-						<dt class="programming-language">JS</dt>
-						<dd>
-							<div class="skills-level">10%</div>
-						</dd>
-					</div>
-				</dl>
+				<dl id="dl"></dl>
+				<form action="#">
+					<input type="text" name="skill" placeholder="Skill" class="form" id="skill-c" required>
+					<input type="text" name="percentage" placeholder="?%" class="form" id="percentage" required>
+				</form>
+				<button type="submit" class="btn" id="crt"> Добавить </button>
+				<form action="#">
+					<input type="text" name="skill" placeholder="Skill" class="form" id="skill-u" required>
+					<input type="text" name="update" placeholder="?%" class="form" id="update" required>
+				</form>
+				<button type="submit" class="btn" id="updt"> Обновить </button>
+				<form action="#">
+					<input type="text" name="skill" placeholder="Skill" class="form" id="skill-d" required>
+				</form>
+				<button type="submit" class="btn" id="dlt"> Удалить </button>
 			</div>
 		</div>
 		<div class="flex">
