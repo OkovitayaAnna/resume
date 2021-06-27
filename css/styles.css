@@ -221,6 +221,7 @@ li {
 }
 
 .orange {
+	cursor: pointer;
 	margin: 5px;
 	width: 20px;
 }
@@ -323,6 +324,7 @@ li {
 }
 
 .yellow {
+	cursor: pointer;
 	margin: 5px;
 	width: 20px;
 }
