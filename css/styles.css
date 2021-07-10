@@ -1,6 +1,23 @@
+h2[contentEditable] {
+    outline: none;
+}
+
+div[contentEditable] {
+    outline: none;
+}
+
+p[contentEditable] {
+    outline: none;
+}
+
 .skills-level:hover {
 	animation-name: skills-level-ok;
 	animation-duration: 4s;
+}
+
+span {
+	margin: 0;
+	padding: 0;
 }
 
 h1 {
@@ -64,6 +81,7 @@ a {
 }
 
 .btn {
+	cursor: pointer;
 	color: #333333;
 	background-color: #ff794d;
 	border: 1px solid #333333;
@@ -86,6 +104,11 @@ a {
 	flex-direction: row;
 	text-align: center;
 	width: 100%;
+}
+
+.change {
+	display: flex;
+	flex-direction: column;
 }
 
 .diploms {
@@ -226,8 +249,35 @@ li {
 	width: 20px;
 }
 
+.pink {
+	cursor: pointer;
+	margin: 5px;
+	width: 20px;
+}
+
+.one, .two {
+	cursor: pointer;
+	margin: 5px;
+	width: 20px;
+}
+
+.two {
+	border-radius: 360px;
+}
+
 .orange-main {
 	background-color: #FFA07A;
+	display: flex;
+	flex-direction: column;
+}
+
+.infa {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pink-main {
+	background-color: #fadadd;
 	display: flex;
 	flex-direction: column;
 }
@@ -251,6 +301,10 @@ li {
 
 .right {
 	margin-top: 28px;
+}
+
+.r {
+	margin-left: auto;
 }
 
 .skills {

@@ -1,15 +1,21 @@
 var orange = document.getElementById('orange');
 var yellow = document.getElementById('yellow');
+var pink = document.getElementById('pink');
+var one = document.getElementById('one');
+var two = document.getElementById('two');
 var main = document.getElementById('main');
 var none = document.getElementsByClassName('none');
 var forms = document.getElementsByClassName('form');
 var btn = document.getElementsByClassName('btn');
 var m2 = document.getElementById('my-photo2');
+var change = document.getElementById('change');
+var slides = document.getElementsByClassName('mySlides');
 var i = 0;
 
 orange.addEventListener("click", function() {
   main.classList.add("orange-main");
   if (i == 1) {main.classList.remove("yellow-main");}
+  if (i == 2) {main.classList.remove("pink-main");}
   i = 0;
   for (let c = 0; c < none.length; c++) {
     none[c].style.color = '#FFA07A';
@@ -20,20 +26,12 @@ orange.addEventListener("click", function() {
   for (let c = 0; c < btn.length; c++) {
     btn[c].style.backgroundColor = '#FF7F50';
   }
-  document.getElementById('courses').style.display = 'flex';
-  document.getElementById('hb').style.display = 'block';
-  document.getElementById('biography').style.display = 'block';
-  document.getElementById('contacts').style.display = 'block';
-  document.getElementById('my-photo').style.display = 'flex';
-  document.getElementById('my-name').style.width = '50%';
-  m2.style.display = 'none';
-  document.getElementById('o').style.display = 'flex';
-  document.getElementById('y').style.display = 'none';
 });
 
 yellow.addEventListener("click", function() {
   main.classList.add("yellow-main");
   if (i == 0) {main.classList.remove("orange-main");}
+  if (i == 2) {main.classList.remove("pink-main");}
   i = 1;
   for (let c = 0; c < none.length; c++) {
     none[c].style.color = '#FFFACD';
@@ -44,6 +42,39 @@ yellow.addEventListener("click", function() {
   for (let c = 0; c < btn.length; c++) {
     btn[c].style.backgroundColor = '#F0E68C';
   }
+});
+
+pink.addEventListener("click", function() {
+  main.classList.add("pink-main");
+  if (i == 0) {main.classList.remove("orange-main");}
+  if (i == 1) {main.classList.remove("yellow-main");}
+  i = 2;
+  for (let c = 0; c < none.length; c++) {
+    none[c].style.color = '#fadadd';
+  }
+  for (let c = 0; c < forms.length; c++) {
+    forms[c].style.backgroundColor = '#ffc0cb';
+  }
+  for (let c = 0; c < btn.length; c++) {
+    btn[c].style.backgroundColor = '#ffc0cb';
+  }
+});
+
+one.addEventListener("click", function() {
+  document.getElementById('courses').style.display = 'flex';
+  document.getElementById('hb').style.display = 'block';
+  document.getElementById('biography').style.display = 'block';
+  document.getElementById('contacts').style.display = 'block';
+  document.getElementById('my-photo').style.display = 'flex';
+  document.getElementById('my-name').style.width = '50%';
+  m2.style.display = 'none';
+  change.style.flexDirection = "column";
+  for (let c = 0; c < slides.length; c++) {
+    slides[c].style.width = '500px';
+  }
+});
+
+two.addEventListener("click", function() {
   document.getElementById('courses').style.display = 'none';
   document.getElementById('hb').style.display = 'none';
   document.getElementById('biography').style.display = 'none';
@@ -55,6 +86,8 @@ yellow.addEventListener("click", function() {
   m2.style.marginRight = 'auto';
   m2.style.borderRadius = '360px';
   m2.style.marginTop = '20px';
-  document.getElementById('y').style.display = 'flex';
-  document.getElementById('o').style.display = 'none';
+  change.style.flexDirection = "column-reverse";
+  for (let c = 0; c < slides.length; c++) {
+    slides[c].style.width = '800px';
+  }
 });
