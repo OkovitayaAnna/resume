@@ -79,20 +79,26 @@
 			<div class="skills border"> 
 				<h2> Мои навыки </h2>
 				<dl id="dl"></dl>
-				<form action="#">
-					<input type="text" name="skill" placeholder="Skill" class="form" id="skill-c" required>
-					<input type="text" name="percentage" placeholder="?%" class="form" id="percentage" required>
+				<button class="open-button btn" onclick="openForm()">+</button>
+
+				<div class="form-popup" id="myForm">
+				<form action="#" class="form-container">
+					<input type="text" placeholder="Название навыка" name="skill" class="form" id="skill-c" required>
+					<input type="text" placeholder="Кол-во процентов" name="percentage"class="form" id="percentage" required>
+
+					<button type="button" class="btn b" id="crt">Добавить</button>
+					<button type="button" class="btn cancel b" onclick="closeForm()">Закрыть</button>
 				</form>
-				<button type="submit" class="btn" id="crt"> Добавить </button>
-				<form action="#">
-					<input type="text" name="skill" placeholder="Skill" class="form" id="skill-u" required>
-					<input type="text" name="update" placeholder="?%" class="form" id="update" required>
-				</form>
-				<button type="submit" class="btn" id="updt"> Обновить </button>
-				<form action="#">
-					<input type="text" name="skill" placeholder="Skill" class="form" id="skill-d" required>
-				</form>
-				<button type="submit" class="btn" id="dlt"> Удалить </button>
+				</div>
+				<script>
+					function openForm() {
+					document.getElementById("myForm").style.display = "block";
+					}
+					
+					function closeForm() {
+					document.getElementById("myForm").style.display = "none";
+					}
+				</script>
 			</div>
 		</div>
 		<div class="change" id="change">

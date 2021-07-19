@@ -110,7 +110,7 @@ var arr = read('skills');
 if (arr) {
     arr.forEach(element => {
         newSkill = document.createElement('div');
-        newSkill.innerHTML = `<div id="${element[0]}"> <dt class="programming-language">${element[0]}</dt> <dd> <div class="skills-level">${element[1]}%</div> </dd> <div>`;
+        newSkill.innerHTML = `<div id="${element[0]}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> ${element[0]}</dt> <dd> <div class="skills-level" contentEditable=true>${element[1]}%</div> </dd> <div>`;
         document.getElementById('dl').append(newSkill);
 
         include("js/skills.colors.js");
@@ -132,52 +132,54 @@ create.addEventListener("click", function () {
     localStorage.setItem('skills', JSON.stringify(obj));
 
     newSkill = document.createElement('div');
-    newSkill.innerHTML = `<div id="${skill}"> <dt class="programming-language">${skill}</dt> <dd> <div class="skills-level">${prct}%</div> </dd> <div>`;
+    newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> ${skill}</dt> <dd> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
     document.getElementById('dl').append(newSkill);
 
     include("js/skills.colors.js");
+    location.reload();
 });
 
 
 //delete
-var dlt = document.getElementById('dlt');
+var dlt = document.getElementsByClassName('dlt');
 
-
-dlt.addEventListener("click", function () {
-    var sd = document.getElementById('skill-d').value;
-    var remove = read('skills');
-    var i = 0;
-
-    remove.forEach(element => {
-        if (element[0] == sd) {remove.splice(i, 1)};
-        i++;
-
-        localStorage.setItem('skills', JSON.stringify(remove));
+for (let l = 0; l < dlt.length; l++) {
+    dlt[l].addEventListener("click", function () {
+        var el = dlt[l].parentElement.parentElement;
+        var sd = el.id;
+        var remove = read('skills');
+        var i = 0;
+    
+        remove.forEach(element => {
+            if (element[0] == sd) {remove.splice(i, 1)};
+            i++;
+    
+            localStorage.setItem('skills', JSON.stringify(remove));
+        });
+    
+        el.remove();
+        i = 0;
+        location.reload();
     });
-
-    document.getElementById(sd).remove();
-    i = 0;
-});
+}
 
 
 //update
-var update = document.getElementById('updt');
+var skills = document.getElementsByClassName('skills-level');
 
-update.addEventListener("click", function () {
-    var skill = document.getElementById('skill-u').value;
-    var updt = document.getElementById('update').value;
-    var update = read('skills');
+for (let a = 0; a < skills.length; a++) {
+    skills[a].addEventListener("blur", function () {
+        var skill = skills[a].parentElement.parentElement.children[0].innerHTML.replace(' <button class="dlt btn"> × </button> ', '');
+        var prct = skills[a];
+        var update = read('skills');
 
-    update.forEach(element => {
-        if (element[0] == skill) {element[1] = updt};
+        update.forEach(element => {
+            if (element[0] == skill) {element[1] = prct.innerHTML.replace('%', '')};
+    
+            localStorage.setItem('skills', JSON.stringify(update));
+        });
 
-        localStorage.setItem('skills', JSON.stringify(update));
+        prct.style.width = prct.innerHTML.replace('%', '');
+        include("js/skills.colors.js");
     });
-
-    newSkill = document.createElement('div');
-    newSkill.innerHTML = `<div  id="${skill}"> <dt class="programming-language">${skill}</dt> <dd> <div class="skills-level">${updt}%</div> </dd> </div>`;
-    document.getElementById(skill).remove();
-    document.getElementById('dl').append(newSkill);
-
-    include("js/skills.colors.js");
-});
+}
