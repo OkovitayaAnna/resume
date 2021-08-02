@@ -24,10 +24,15 @@
 				<img src="images/pink-circle.png" class="pink" id="pink">
 			</div>
 		</div>
-		<img src="images/my-photo.jpg" class="my-photo2" id="my-photo2">
+		<div class="my-photo2" id="my-photo2"> 
+		</div>
 		<div class="flex">
 			<div class="information-about-me border" id="information-about-me">
-				<div id="my-photo"> <img src="images/my-photo.jpg" class="my-photo"> </div>
+				<div id="my-photo"> 
+					<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+					<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+					<p><img id="output" width="200" /></p>	
+				</div>
 				<div class="my-name" id="my-name">
 					<h2 contentEditable=true class="fio" id="name"> </h2>
 					<p class="hb" id="hb" contentEditable=true> </p>
@@ -42,44 +47,43 @@
 			</div>
 		</div>
 
-		<div class="flex">
-			<div class="experience border">
-				<h2> Образование, опыт работы </h2>
-				<div class="work" id="work">  
-						<div class="studing" id="studing">
-							<div class="school-studing" contentEditable=true id="school-studing"> </div>
-							<div class="university" contentEditable=true id="university"> </div>
+		<div class="flex border w">
+			<h2> Опыт </h2>
+			<div class="work-experience" id="work-experience">
+				<div class="workExperience" id="workExperience"></div>
+				<button class="open-button btn workButton" onclick="openForm('myForm2')">+</button>
+				<div class="form-popup" id="myForm2">
+					<form action="#" class="form-container workForm">
+						<div class="inputs">
+							<input type="text" placeholder="Год (с.. до..)" name="year" class="form" id="year" required>
+							<input type="text" placeholder="Компания" name="company"class="form" id="company" required>
+							<input type="text" placeholder="Должность" name="position"class="form" id="position" required>
 						</div>
-						<div class="work-years" contentEditable=true id="work-years"> </div>
+
+						<button type="button" class="btn b" id="crtWork">Добавить</button>
+						<button type="button" class="btn cancel b" onclick="closeForm('myForm2')">Закрыть</button>
+					</form>
 				</div>
 			</div>
 		</div>
 
 		<div class="flex">
-			<div class="courses border" id="courses">
-				<div class="left" id="left">
-					<p contentEditable=true id="f"> </p>
-					<p class="none" id="ff"> ----------------------------------------------- </p>
-					<p contentEditable=true id="s"> </p>
-				</div>
-				<div class="center">
-					<h2> Пройденные мной курсы </h2>
-					<p class="icon"> /иконка курса/ </p>
-					<p class="icon"> /иконка курса/ </p>
-					<p class="icon"> /иконка курса/ </p>
-				</div>
-				<div class="right" id="right">
-					<p class="none" id="ss"> ----------------------------------------------- </p>
-					<p contentEditable=true id="th"> </p>
-					<p class="none" id="thth"> ----------------------------------------------- </p>
+			<div class="experience border">
+				<h2> Образование</h2>
+				<div class="work" id="work">  
+						<div class="studing" id="studing">
+							<div class="school-studing" contentEditable=true id="school-studing"> </div>
+							<div class="university" contentEditable=true id="university"> </div>
+						</div>
 				</div>
 			</div>
 		</div>
+
 		<div class="flex">
 			<div class="skills border"> 
 				<h2> Мои навыки </h2>
 				<dl id="dl"></dl>
-				<button class="open-button btn" onclick="openForm()">+</button>
+				<button class="open-button btn" onclick="openForm('myForm')">+</button>
 
 				<div class="form-popup" id="myForm">
 				<form action="#" class="form-container">
@@ -87,21 +91,22 @@
 					<input type="text" placeholder="Кол-во процентов" name="percentage"class="form" id="percentage" required>
 
 					<button type="button" class="btn b" id="crt">Добавить</button>
-					<button type="button" class="btn cancel b" onclick="closeForm()">Закрыть</button>
+					<button type="button" class="btn cancel b" onclick="closeForm('myForm')">Закрыть</button>
 				</form>
 				</div>
 				<script>
-					function openForm() {
-					document.getElementById("myForm").style.display = "block";
+					function openForm(id) {
+					document.getElementById(id).style.display = "block";
 					}
 					
-					function closeForm() {
-					document.getElementById("myForm").style.display = "none";
+					function closeForm(id) {
+					document.getElementById(id).style.display = "none";
 					}
 				</script>
 			</div>
 		</div>
 		<div class="change" id="change">
+			<div class="hideDiv"> <button type="button" class="btn hide">Скрыть проекты</button> </div>
 			<div class="flex">
 				<div class="my-projects border">
 					<h2> Мои проекты </h2>
@@ -110,17 +115,17 @@
 
 						<!-- Полноразмерные изображения с числом и текстом подписи -->
 						<div class="mySlides fade">
-						<img src="images/it-project3.png" style="width:100%">
+						<img src="images/it-project3.png" style="width:100%; height:400px">
 						<div class="text" contentEditable=true> Подпись один </div>
 						</div>
 					
 						<div class="mySlides fade">
-						<img src="images/it-project2.png" style="width:100%">
+						<img src="images/it-project2.png" style="width:100%; height:400px">
 						<div class="text" contentEditable=true> Подпись два </div>
 						</div>
 					
 						<div class="mySlides fade">
-						<img src="images/it-project1.jpg" style="width:100%">
+						<img src="images/it-project1.jpg" style="width:100%; height:400px">
 						<div class="text" contentEditable=true> Подпись три </div>
 						</div>
 					
@@ -137,21 +142,22 @@
 					</div>
 				</div>
 			</div>
+			<div class="hideDiv"> <button type="button" class="btn hide">Скрыть дипломы</button> </div>
 			<div class="flex">
 				<div class="diploms">
 					<h2> Мои дипломы и награды </h2>
 					<!-- Сетка: четыре столбца -->
-					<div class="row">
-						<div class="column">
+					<div class="row myDiploms">
+						<div class="column diplom">
 						<img src="images/diplom1.jpg" alt="1" onclick="myFunction(this);">
 						</div>
-						<div class="column">
+						<div class="column diplom">
 						<img src="images/diplom2.jpg" alt="2" onclick="myFunction(this);">
 						</div>
-						<div class="column">
+						<div class="column diplom">
 						<img src="images/diplom3.jpg" alt="3" onclick="myFunction(this);">
 						</div>
-						<div class="column">
+						<div class="column diplom">
 						<img src="images/diplom4.jpg" alt="4" onclick="myFunction(this);">
 						</div>
 					</div>
@@ -170,9 +176,15 @@
 				</div>
 			</div>
 		</div>
-		<a target="_blank" href="">Скачать резюме</a>
+		<a href="" download> Скачать резюме </a>
 	</div>
 	<script src="js/main.js"></script>
+	<script>
+	var loadFile = function(event) {
+		var image = document.getElementById('output');
+		image.src = URL.createObjectURL(event.target.files[0]);
+	};
+	</script>
 </body>
 
 </html>

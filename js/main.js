@@ -51,6 +51,18 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+
+
+var hide = document.getElementsByClassName('hide');
+
+for (i = 0; i < hide.length; i++) {
+  hide[i].addEventListener("click", function () {
+    this.parentElement.nextElementSibling.style.display = "none";
+  });
+}
+
+
+
 include("js/accordion.js");
 include("js/skills.colors.js");
 include("js/skills.js");

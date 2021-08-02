@@ -30,13 +30,6 @@ readText('dop', 'дополнительно (логин в инстаграме,
 readText('email', 'почта', 'p', 'my-name', 'none-marging-and-padding');
 readText('school-studing', 'Школа, годы', 'div', 'studing', 'school-studing');
 readText('university', 'Университет, факультет, годы', 'div', 'studing', 'university');
-readText('work-years', 'Опыт работы - ... в ...', 'div', 'work', 'work-years');
-readText('f', 'название, немного информации по желанию', 'p', 'left');
-readText('ff', '-----------------------------------------------', 'p', 'left', 'none');
-readText('s', 'название, немного информации по желанию', 'p', 'left');
-readText('ss', '-----------------------------------------------', 'p', 'right', 'none');
-readText('th', 'название, немного информации по желанию', 'p', 'right');
-readText('thth', '-----------------------------------------------', 'p', 'right', 'none');
 
 whatAdd1 = document.getElementById('hb');
 whatAdd1.addEventListener("blur", function () {
@@ -82,26 +75,6 @@ whatAdd9 = document.getElementById('university');
 whatAdd9.addEventListener("blur", function () {
     res = whatAdd9.innerHTML;
     localStorage.setItem('university', JSON.stringify(res));
-});
-whatAdd10 = document.getElementById('work-years');
-whatAdd10.addEventListener("blur", function () {
-    res = whatAdd10.innerHTML;
-    localStorage.setItem('work-years', JSON.stringify(res));
-});
-whatAdd11 = document.getElementById('f');
-whatAdd11.addEventListener("blur", function () {
-    res = whatAdd11.innerHTML;
-    localStorage.setItem('f', JSON.stringify(res));
-});
-whatAdd12 = document.getElementById('s');
-whatAdd12.addEventListener("blur", function () {
-    res = whatAdd12.innerHTML;
-    localStorage.setItem('s', JSON.stringify(res));
-});
-whatAdd13 = document.getElementById('th');
-whatAdd13.addEventListener("blur", function () {
-    res = whatAdd13.innerHTML;
-    localStorage.setItem('th', JSON.stringify(res));
 });
 
 
@@ -181,5 +154,78 @@ for (let a = 0; a < skills.length; a++) {
 
         prct.style.width = prct.innerHTML.replace('%', '');
         include("js/skills.colors.js");
+    });
+}
+
+
+
+var work = read('work');
+
+var createWork = document.getElementById('crtWork');
+
+createWork.addEventListener("click", function () {
+    var year = document.getElementById('year').value;
+    var company = document.getElementById('company').value;
+    var position = document.getElementById('position').value;
+    var workArr = read('work');
+    if (workArr) {var workObj = workArr;} else {var workObj = [];};
+    var setWork = [year, company, position];
+
+    workObj.push(setWork);
+    localStorage.setItem('work', JSON.stringify(workObj));
+
+    newWorkExperience = document.createElement('div');
+    newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${company} workingExperience" id="${company}"> <p class="year" contentEditable=true> ${year} </p> <p class="comp"> ${company} </p> <p class="position"> ${position} </p> </div> </div>`;
+    document.getElementById('workExperience').append(newWorkExperience);
+
+    location.reload();
+});
+
+
+
+if (work) {
+    work.forEach(element => {
+        newWorkExperience = document.createElement('div');
+        newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${element[1]} workingExperience" id="${element[1]}"> <p class="year" contentEditable=true> ${element[0]} </p> <p class="comp"> ${element[1]} </p> <p class="position"> ${element[2]} </p> </div> </div>`;
+        document.getElementById('workExperience').append(newWorkExperience);
+});
+}
+
+var dltWork = document.getElementsByClassName('dltWork');
+
+for (let t = 0; t < dltWork.length; t++) {
+    dltWork[t].addEventListener("click", function () {
+        var elementForDlt = dltWork[t].nextElementSibling;
+        var idOfThis = elementForDlt.id;
+
+        work = read('work');
+        i = 0;
+
+        work.forEach(element => {
+            if (element[1] == idOfThis) {work.splice(i, 1)};
+            i++;
+    
+            localStorage.setItem('work', JSON.stringify(work));
+        });
+
+        elementForDlt.remove();
+        i = 0;
+        location.reload();
+    });
+}
+
+var years = document.getElementsByClassName('year');
+
+for (let b = 0; b < years.length; b++) {
+    years[b].addEventListener("blur", function () {
+        work = read('work');
+        year = years[b].innerHTML;
+        id = years[b].parentElement.id;
+
+        work.forEach(element => {
+            if (element[1] == id) {element[0] = year};
+    
+            localStorage.setItem('work', JSON.stringify(work));
+        });
     });
 }

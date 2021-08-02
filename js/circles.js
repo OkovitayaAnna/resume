@@ -4,7 +4,6 @@ var pink = document.getElementById('pink');
 var one = document.getElementById('one');
 var two = document.getElementById('two');
 var main = document.getElementById('main');
-var none = document.getElementsByClassName('none');
 var forms = document.getElementsByClassName('form');
 var btn = document.getElementsByClassName('btn');
 var m2 = document.getElementById('my-photo2');
@@ -17,9 +16,6 @@ orange.addEventListener("click", function() {
   if (i == 1) {main.classList.remove("yellow-main");}
   if (i == 2) {main.classList.remove("pink-main");}
   i = 0;
-  for (let c = 0; c < none.length; c++) {
-    none[c].style.color = '#FFA07A';
-  }
   for (let c = 0; c < forms.length; c++) {
     forms[c].style.backgroundColor = '#FF7F50';
   }
@@ -33,9 +29,6 @@ yellow.addEventListener("click", function() {
   if (i == 0) {main.classList.remove("orange-main");}
   if (i == 2) {main.classList.remove("pink-main");}
   i = 1;
-  for (let c = 0; c < none.length; c++) {
-    none[c].style.color = '#FFFACD';
-  }
   for (let c = 0; c < forms.length; c++) {
     forms[c].style.backgroundColor = '#F0E68C';
   }
@@ -49,9 +42,6 @@ pink.addEventListener("click", function() {
   if (i == 0) {main.classList.remove("orange-main");}
   if (i == 1) {main.classList.remove("yellow-main");}
   i = 2;
-  for (let c = 0; c < none.length; c++) {
-    none[c].style.color = '#fadadd';
-  }
   for (let c = 0; c < forms.length; c++) {
     forms[c].style.backgroundColor = '#ffc0cb';
   }
@@ -61,7 +51,6 @@ pink.addEventListener("click", function() {
 });
 
 one.addEventListener("click", function() {
-  document.getElementById('courses').style.display = 'flex';
   document.getElementById('hb').style.display = 'block';
   document.getElementById('biography').style.display = 'block';
   document.getElementById('contacts').style.display = 'block';
@@ -71,11 +60,11 @@ one.addEventListener("click", function() {
   change.style.flexDirection = "column";
   for (let c = 0; c < slides.length; c++) {
     slides[c].style.width = '500px';
+    slides[c].children[0].style.height = '400px';
   }
 });
 
 two.addEventListener("click", function() {
-  document.getElementById('courses').style.display = 'none';
   document.getElementById('hb').style.display = 'none';
   document.getElementById('biography').style.display = 'none';
   document.getElementById('contacts').style.display = 'none';
@@ -89,5 +78,6 @@ two.addEventListener("click", function() {
   change.style.flexDirection = "column-reverse";
   for (let c = 0; c < slides.length; c++) {
     slides[c].style.width = '800px';
+    slides[c].children[0].style.height = '600px';
   }
 });

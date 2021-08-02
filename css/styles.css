@@ -1,3 +1,7 @@
+#courses {
+	justify-content: center;
+}
+
 h2[contentEditable] {
     outline: none;
 }
@@ -67,7 +71,7 @@ a {
 }
 
 .biography {
-	display: flex;
+	display: block;
 	margin: 0px;
 	padding: 0px;
 	margin-top: 10px;
@@ -110,6 +114,13 @@ a {
 .change {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
+}
+
+.diplom {
+	margin-left: auto;
+	margin-right: auto;
+	width: 20%;
 }
 
 .diploms {
@@ -158,6 +169,11 @@ a {
 	margin: 0px;
 	padding: 0px;
 	margin-bottom: 5px;
+}
+
+.hideDiv {
+	padding: 10px;
+	margin: 10px;
 }
 
 .icons {
@@ -234,6 +250,11 @@ li {
 	display: none;
 	margin-right: 40px;
 	width: 200px;
+}
+
+.myDiploms {
+	display: flex;
+	flex-direction: row;
 }
 
 .none {
@@ -357,6 +378,19 @@ li {
 	width: 50%;
 }
 
+.w {
+	flex-direction: column;
+	margin: 5px;
+}
+
+.work-experience {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 .what {
 	display: none;
 }
@@ -372,7 +406,8 @@ li {
 }
 
 .work {
-	margin: 20px;;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 .y {
@@ -615,9 +650,10 @@ li {
   
 /* Стиль изображения внутри сетки */
 .column img {
+	height: 100%;
 	opacity: 0.8;
 	cursor: pointer;
-	width: 200px;
+	width: 100%;
   }
   
   .column img:hover {
@@ -662,6 +698,8 @@ li {
 	border-radius: 360px;
 	width: 30px;
 	margin-bottom: 20px;
+	position: static;
+	height: 30px;
 }
 
 .dlt {
@@ -672,7 +710,6 @@ li {
   
 .form-popup {
 	display: none;
-	margin-bottom: 20px;
 	margin-left: 10px;
 }
 
@@ -691,11 +728,75 @@ li {
 .form-container input[type=text]{
 	width: 100%;
 	padding: 5px;
-	margin: 5px 0 22px 0;
+	margin: 5px;
+	margin-left: 0;
 }
 
 .b {
 	margin: 5px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.workForm {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.workButton {
+	margin: 10px;
+	display: flex;
+	justify-content: center;
+	height: 30px;
+}
+
+.workForm input[type=text] {
+	margin: 5px;
+}
+
+.inputs {
+	display: flex;
+	flex-direction: row;
+}
+
+.dltWork {
+	cursor: pointer;
+	border-radius: 360px;
+	margin: 10px;
+	width: 30px;
+	height: 30px;
+	margin-bottom: 20px;
+}
+
+.workExp {
+	display: flex;
+	flex-direction: row;
+	width: 945px;
+	justify-content: center;
+}
+
+.workingExperience {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: center;
+}
+
+.position {
+	display: flex;
+	width: 40%;
+	justify-content: center;
+}
+
+.comp {
+	display: flex;
+	width: 25%;
+	justify-content: center;
+}
+
+.year {
+	display: flex;
+	width: 35%;
+	justify-content: center;
 }
