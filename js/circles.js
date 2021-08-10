@@ -55,7 +55,7 @@ one.addEventListener("click", function() {
   document.getElementById('biography').style.display = 'block';
   document.getElementById('contacts').style.display = 'block';
   document.getElementById('my-photo').style.display = 'flex';
-  document.getElementById('my-name').style.width = '50%';
+  document.getElementById('my-name').style.width = '60%';
   m2.style.display = 'none';
   change.style.flexDirection = "column";
   for (let c = 0; c < slides.length; c++) {

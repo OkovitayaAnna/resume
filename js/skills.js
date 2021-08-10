@@ -28,8 +28,6 @@ readText('biography', 'немного биографии бла бла бла б
 readText('phone', 'номер телефона', 'p', 'my-name', 'none-marging-and-padding');
 readText('dop', 'дополнительно (логин в инстаграме, скайпе и т.д.)', 'p', 'my-name', 'none-marging-and-padding');
 readText('email', 'почта', 'p', 'my-name', 'none-marging-and-padding');
-readText('school-studing', 'Школа, годы', 'div', 'studing', 'school-studing');
-readText('university', 'Университет, факультет, годы', 'div', 'studing', 'university');
 
 whatAdd1 = document.getElementById('hb');
 whatAdd1.addEventListener("blur", function () {
@@ -66,16 +64,6 @@ whatAdd7.addEventListener("blur", function () {
     res = whatAdd7.innerHTML;
     localStorage.setItem('name', JSON.stringify(res));
 });
-whatAdd8 = document.getElementById('school-studing');
-whatAdd8.addEventListener("blur", function () {
-    res = whatAdd8.innerHTML;
-    localStorage.setItem('school-studing', JSON.stringify(res));
-});
-whatAdd9 = document.getElementById('university');
-whatAdd9.addEventListener("blur", function () {
-    res = whatAdd9.innerHTML;
-    localStorage.setItem('university', JSON.stringify(res));
-});
 
 
 
@@ -83,7 +71,7 @@ var arr = read('skills');
 if (arr) {
     arr.forEach(element => {
         newSkill = document.createElement('div');
-        newSkill.innerHTML = `<div id="${element[0]}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> ${element[0]}</dt> <dd> <div class="skills-level" contentEditable=true>${element[1]}%</div> </dd> <div>`;
+        newSkill.innerHTML = `<div id="${element[0]}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> ${element[0]}</dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${element[1]}%</div> </dd> <div>`;
         document.getElementById('dl').append(newSkill);
 
         include("js/skills.colors.js");
@@ -105,7 +93,7 @@ create.addEventListener("click", function () {
     localStorage.setItem('skills', JSON.stringify(obj));
 
     newSkill = document.createElement('div');
-    newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> ${skill}</dt> <dd> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
+    newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> ${skill}</dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
     document.getElementById('dl').append(newSkill);
 
     include("js/skills.colors.js");
@@ -226,6 +214,79 @@ for (let b = 0; b < years.length; b++) {
             if (element[1] == id) {element[0] = year};
     
             localStorage.setItem('work', JSON.stringify(work));
+        });
+    });
+}
+
+
+
+var school = read('school');
+
+var createSchool = document.getElementById('crtSchool');
+
+createSchool.addEventListener("click", function () {
+    var yearS = document.getElementById('yearS').value;
+    var school = document.getElementById('school').value;
+    var grades = document.getElementById('grades').value;
+    var schoolArr = read('school');
+    if (schoolArr) {var schoolObj = schoolArr;} else {var schoolObj = [];};
+    var setSchool = [yearS, school, grades];
+
+    schoolObj.push(setSchool);
+    localStorage.setItem('school', JSON.stringify(schoolObj));
+
+    newSchoolExperience = document.createElement('div');
+    newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${school} schoolExperience" id="${school}"> <p class="yearS" contentEditable=true> ${yearS} </p> <p class="school"> ${school} </p> <p class="grades"> ${grades} </p> </div> </div>`;
+    document.getElementById('schoolExperience').append(newSchoolExperience);
+
+    location.reload();
+});
+
+
+
+if (school) {
+    school.forEach(element => {
+        newSchoolExperience = document.createElement('div');
+        newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${element[1]} schoolExperience" id="${element[1]}"> <p class="yearS" contentEditable=true> ${element[0]} </p> <p class="school"> ${element[1]} </p> <p class="grades"> ${element[2]} </p> </div> </div>`;
+        document.getElementById('schoolExperience').append(newSchoolExperience);
+});
+}
+
+var dltSchool = document.getElementsByClassName('dltSchool');
+
+for (let t = 0; t < dltSchool.length; t++) {
+    dltSchool[t].addEventListener("click", function () {
+        var elementForDlt = dltSchool[t].nextElementSibling;
+        var idOfThis = elementForDlt.id;
+
+        school = read('school');
+        i = 0;
+
+        school.forEach(element => {
+            if (element[1] == idOfThis) {school.splice(i, 1)};
+            i++;
+    
+            localStorage.setItem('school', JSON.stringify(school));
+        });
+
+        elementForDlt.remove();
+        i = 0;
+        location.reload();
+    });
+}
+
+var yearsS = document.getElementsByClassName('yearS');
+
+for (let b = 0; b < yearsS.length; b++) {
+    yearsS[b].addEventListener("blur", function () {
+        school = read('school');
+        yearS = yearsS[b].innerHTML;
+        id = yearsS[b].parentElement.id;
+
+        school.forEach(element => {
+            if (element[1] == id) {element[0] = yearS};
+    
+            localStorage.setItem('school', JSON.stringify(school));
         });
     });
 }

@@ -2,6 +2,13 @@
 	justify-content: center;
 }
 
+#my-photo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 35%;
+}
+
 h2[contentEditable] {
     outline: none;
 }
@@ -12,11 +19,6 @@ div[contentEditable] {
 
 p[contentEditable] {
     outline: none;
-}
-
-.skills-level:hover {
-	animation-name: skills-level-ok;
-	animation-duration: 4s;
 }
 
 span {
@@ -96,6 +98,10 @@ a {
 	margin-left: 10px;
 	width: 150px;
 	padding: 5px;
+}
+
+.btnAvatar {
+	margin: 0;
 }
 
 .contacts {
@@ -236,13 +242,12 @@ li {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 50%;
+	width: 60%;
 }
 
 .my-photo {
 	border-radius: 10px;
-	margin-right: 40px;
-	width: 400px;
+	width: 40%;
 }
 
 .my-photo2 {
@@ -320,6 +325,13 @@ li {
 	color: #333333;
 	font-weight: bold;
 	text-align: left;
+	width: 15%;
+}
+
+.prct {
+	width: 85%;
+	margin: 0;
+	margin-top: 15px;
 }
 
 .right {
@@ -380,15 +392,18 @@ li {
 
 .w {
 	flex-direction: column;
-	margin: 5px;
 }
 
 .work-experience {
-	margin-left: auto;
 	margin-right: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+.skill {
+	display: flex;
+	flex-direction: row;
 }
 
 .what {
@@ -422,128 +437,6 @@ li {
 
 .yellow-main {
 	background-color: #FFFACD;
-}
-
-@media screen and (max-width: 1200px) {
-	.main-container {
-		width: 960px;
-	}
-	.my-photo {
-		width: 170px;
-	}
-	.what-i-learned {
-		font-size: 28px;
-	}
-}
-
-@media screen and (max-width: 992px) {
-	h1 {
-		font-size: 30px;
-	}
-	.main-container {
-		width: 720px;
-	}
-	.my-photo {
-		width: 130px;
-	}
-	.information-about-me {
-		font-size: 15px;
-	}
-	.what-i-learned {
-		font-size: 20px;
-	}
-	.grades {
-		font-size: 12px;
-	}
-	.panel {
-		font-size: 14px;
-	}
-	.programming-language {
-		font-size: 12px;
-	}
-	.skills-level {
-		font-size: 10px;
-	}
-	.languages {
-		font-size: 17px;
-	}
-	.stars {
-		width: 60px;
-	}
-	.contacts {
-		font-size: 12px;
-	}
-	.icons {
-		height: 20px;
-		width: 20px;
-	}
-	.school {
-		flex-direction: column;
-	}
-	.grades {
-		width: 310%;
-	}
-	.panel {
-		width: 291%;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.main-container {
-		width: 540px;
-	}
-	.what-i-learned {
-		font-size: 17px;
-	}
-	.my-photo {
-		width: 100px;
-	}
-	h1 {
-		font-size: 25px;
-	}
-	.form {
-		font-size: 12px;
-	}
-	.btn {
-		font-size: 12px;
-	}
-	.panel {
-		width: 285%;
-	}
-}
-
-@media screen and (max-width: 576px) {
-	.main-container {
-		width: 90%;
-	}
-	.what-i-learned {
-		font-size: 15px;
-	}
-	.flex {
-		display: none;
-	}
-	.phone-2 {
-		display: block;
-	}
-	.contacts {
-		font-size: 10px;
-	}
-	.information-about-me {
-		display: flex;
-		font-size: 15px;
-		width: 100%;
-		align-items: center;
-	}
-	.what-i-learned {
-		display: none;
-		width: 100%;
-	}
-	.what {
-		display: block;
-	}
-	.panel {
-		width: 280%;
-	}
 }
 
 * {box-sizing:border-box}
@@ -706,6 +599,7 @@ li {
 	cursor: pointer;
 	border-radius: 360px;
 	width: 30px;
+	height: 30px;
 }
   
 .form-popup {

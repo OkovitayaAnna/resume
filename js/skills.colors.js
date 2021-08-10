@@ -2,6 +2,7 @@ var skillsLevels = document.getElementsByClassName('skills-level');
 for (var i = 0; i != skillsLevels.length; i++) {
     var skillElement = skillsLevels[i];
     var text = skillElement.innerHTML;
+
     if (text.length) {
         text = text.replace("%","");
     }
@@ -20,4 +21,8 @@ for (var i = 0; i != skillsLevels.length; i++) {
     if (text<=100 && text>80){
         skillElement.style = 'background-color: #808080; width: ' + text + '%;';
     }
+    skillElement.animate([{width: '5%'}, {width: `${text}`}], 3000);
+    skillElement.addEventListener("mouseover", function() {
+        skillElement.animate([{width: '5%'}, {width: `${text}`}], 3000);
+    })
 }

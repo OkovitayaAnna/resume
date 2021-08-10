@@ -30,7 +30,7 @@
 			<div class="information-about-me border" id="information-about-me">
 				<div id="my-photo"> 
 					<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
-					<p><label for="file" style="cursor: pointer;">Загрузить аватар</label></p>
+					<p class="btnAvatar"><label for="file" style="cursor: pointer;">Загрузить аватар</label></p>
 					<p><img id="output" width="200" /></p>	
 				</div>
 				<div class="my-name" id="my-name">
@@ -47,22 +47,24 @@
 			</div>
 		</div>
 
-		<div class="flex border w">
-			<h2> Опыт </h2>
-			<div class="work-experience" id="work-experience">
-				<div class="workExperience" id="workExperience"></div>
-				<button class="open-button btn workButton" onclick="openForm('myForm2')">+</button>
-				<div class="form-popup" id="myForm2">
-					<form action="#" class="form-container workForm">
-						<div class="inputs">
-							<input type="text" placeholder="Год (с.. до..)" name="year" class="form" id="year" required>
-							<input type="text" placeholder="Компания" name="company"class="form" id="company" required>
-							<input type="text" placeholder="Должность" name="position"class="form" id="position" required>
-						</div>
+		<div class="flex">
+			<div class="border w experience">
+				<h2> Опыт </h2>
+				<div class="work-experience" id="work-experience">
+					<div class="workExperience" id="workExperience"></div>
+					<button class="open-button btn workButton" onclick="openForm('myForm2')">+</button>
+					<div class="form-popup" id="myForm2">
+						<form action="#" class="form-container workForm">
+							<div class="inputs">
+								<input type="text" placeholder="Год (с.. до..)" name="year" class="form" id="year" required>
+								<input type="text" placeholder="Компания" name="company" class="form" id="company" required>
+								<input type="text" placeholder="Должность" name="position" class="form" id="position" required>
+							</div>
 
-						<button type="button" class="btn b" id="crtWork">Добавить</button>
-						<button type="button" class="btn cancel b" onclick="closeForm('myForm2')">Закрыть</button>
-					</form>
+							<button type="button" class="btn b" id="crtWork">Добавить</button>
+							<button type="button" class="btn cancel b" onclick="closeForm('myForm2')">Закрыть</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -70,11 +72,21 @@
 		<div class="flex">
 			<div class="experience border">
 				<h2> Образование</h2>
-				<div class="work" id="work">  
-						<div class="studing" id="studing">
-							<div class="school-studing" contentEditable=true id="school-studing"> </div>
-							<div class="university" contentEditable=true id="university"> </div>
-						</div>
+				<div class="work-experience" id="school-experience">
+					<div class="workExperience" id="schoolExperience"></div>
+					<button class="open-button btn workButton" onclick="openForm('myForm3')">+</button>
+					<div class="form-popup" id="myForm3">
+						<form action="#" class="form-container workForm">
+							<div class="inputs">
+								<input type="text" placeholder="Год (с.. до..)" name="yearS" class="form" id="yearS" required>
+								<input type="text" placeholder="Школа/университет" name="school" class="form" id="school" required>
+								<input type="text" placeholder="Успеваемость" name="grades" class="form" id="grades" required>
+							</div>
+	
+							<button type="button" class="btn b" id="crtSchool">Добавить</button>
+							<button type="button" class="btn cancel b" onclick="closeForm('myForm3')">Закрыть</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -180,11 +192,23 @@
 	</div>
 	<script src="js/main.js"></script>
 	<script>
-	var loadFile = function(event) {
-		var image = document.getElementById('output');
-		image.src = URL.createObjectURL(event.target.files[0]);
-	};
-	</script>
+		var loadFile = function(event) {
+		  const file = event.target.files[0];
+		  const reader = new FileReader();
+		  reader.onloadend = () => {
+			const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+			localStorage.setItem('avatar', base64String);
+			var image = document.getElementById('output');
+			image.src = `data:image/png;base64,${base64String}`;
+		  };
+		  reader.readAsDataURL(file);
+		};
+		const base64String = localStorage.getItem('avatar');
+		if (base64String) {
+		  var image = document.getElementById('output');
+		  image.src = `data:image/png;base64,${base64String}`;
+		}
+	  </script>
 </body>
 
 </html>
