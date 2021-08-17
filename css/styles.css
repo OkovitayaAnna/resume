@@ -1,3 +1,13 @@
+@keyframes expandedImg {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+.container {
+	animation-name: expandedImg;
+	animation-duration: 4s;
+}
+
 #courses {
 	justify-content: center;
 }
@@ -121,6 +131,23 @@ a {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+}
+
+.crtDiplom {
+	width: 30px;
+	height: 30px;
+	border-radius: 360px;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+}
+
+.crtD {
+	display: flex;
+	justify-content: center;
 }
 
 .diplom {
@@ -547,8 +574,14 @@ li {
 	opacity: 0.8;
 	cursor: pointer;
 	width: 100%;
+	object-fit: cover;
   }
   
+  .dltDiplom {
+	  margin-top: 0;
+	  margin-left: 0;
+  }
+
   .column img:hover {
 	opacity: 1;
   }
@@ -568,7 +601,11 @@ li {
     margin-right: auto;
 	width: 400px;
   }
-  
+
+  #expandedImg {
+	  height: 550px;
+  }
+
   /* Расширение текста изображения */
   #imgtext {
 	position: absolute;

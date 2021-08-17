@@ -159,18 +159,10 @@
 				<div class="diploms">
 					<h2> Мои дипломы и награды </h2>
 					<!-- Сетка: четыре столбца -->
-					<div class="row myDiploms">
-						<div class="column diplom">
-						<img src="images/diplom1.jpg" alt="1" onclick="myFunction(this);">
-						</div>
-						<div class="column diplom">
-						<img src="images/diplom2.jpg" alt="2" onclick="myFunction(this);">
-						</div>
-						<div class="column diplom">
-						<img src="images/diplom3.jpg" alt="3" onclick="myFunction(this);">
-						</div>
-						<div class="column diplom">
-						<img src="images/diplom4.jpg" alt="4" onclick="myFunction(this);">
+					<div class="row myDiploms" id="diploms">
+						<div class="column diplom crtD">
+							<input type="file" class="crtDiplom btn" id="crtDiplom" style="display: none;">
+							<label for="crtDiplom" style="cursor: pointer; text-align: center;" class="btn crtDiplom">+</label>
 						</div>
 					</div>
 					
@@ -188,7 +180,6 @@
 				</div>
 			</div>
 		</div>
-		<a href="" download> Скачать резюме </a>
 	</div>
 	<script src="js/main.js"></script>
 	<script>

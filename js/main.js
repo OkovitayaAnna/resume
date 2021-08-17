@@ -63,6 +63,62 @@ for (i = 0; i < hide.length; i++) {
 
 
 
+var crtD = document.getElementById('crtDiplom');
+
+crtD.addEventListener("change", function (event) {
+  const fileD = event.target.files[0];
+	const readerD = new FileReader();
+	readerD.onloadend = () => {
+		const base64StringD = readerD.result.replace('data:', '').replace(/^.+,/, '');
+    var diploms = JSON.parse(localStorage.getItem('diploms'));
+    if (diploms == null) {diploms = [];};
+    diploms.push([base64StringD]);
+		localStorage.setItem('diploms', JSON.stringify(diploms));
+		var src = `data:image/png;base64,${base64StringD}`;
+
+    newDiplom = document.createElement('div');
+    newDiplom.classList = 'diplom column';
+    newDiplom.innerHTML = `<img src="${src}" alt="diplom" onclick="myFunction(this);"> <button class="dltDiplom"> × </button>`;
+    document.getElementById('diploms').prepend(newDiplom);
+	};
+	readerD.readAsDataURL(fileD);
+  location.reload();
+});
+
+const base64StringD = JSON.parse(localStorage.getItem('diploms'));
+if (base64StringD != [] && base64StringD != null) {
+  base64StringD.forEach(element => {
+    var src = `data:image/png;base64,${element}`;
+  
+    newDiplom = document.createElement('div');
+    newDiplom.classList = 'diplom column';
+    newDiplom.innerHTML = `<img src="${src}" alt="diplom" onclick="myFunction(this);"> <button class="dltDiplom btn open-button"> × </button>`;
+    document.getElementById('diploms').prepend(newDiplom);
+  });
+}
+
+
+
+var dltD = document.getElementsByClassName('dltDiplom');
+
+for (let b = 0; b < dltD.length; b++) {
+  const element = dltD[b];
+  element.addEventListener("click", function () {
+    var srcEl = element.parentElement.children[0].src;
+    element.parentElement.remove();
+    var diploms = JSON.parse(localStorage.getItem('diploms'));
+    var i = 0;
+    diploms.forEach(element => {
+      if (element[0] == srcEl.replace('data:image/png;base64,', '')) {diploms.splice(i, 1)}
+      i++;
+      localStorage.setItem('diploms', JSON.stringify(diploms));
+    });
+    location.reload();
+  });
+}
+
+
+
 include("js/accordion.js");
 include("js/skills.colors.js");
 include("js/skills.js");
