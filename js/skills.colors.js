@@ -23,6 +23,6 @@ for (var i = 0; i != skillsLevels.length; i++) {
     }
     skillElement.animate([{width: '5%'}, {width: `${text}`}], 3000);
     skillElement.addEventListener("mouseover", function() {
-        skillElement.animate([{width: '5%'}, {width: `${text}`}], 3000);
+        this.animate([{width: '5%'}, {width: `${text}`}], 3000);
     })
 }

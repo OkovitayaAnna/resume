@@ -17,6 +17,7 @@
 			<div class="l">
 				<img src="images/1.png" class="one" id="one">
 				<img src="images/2.png" class="two" id="two">
+				<img src="images/3.png" class="three" id="three">
 			</div>
 			<div class="r">
 				<img src="images/orange-circle.png" class="orange" id="orange">
@@ -31,7 +32,7 @@
 				<div id="my-photo"> 
 					<p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
 					<p class="btnAvatar"><label for="file" style="cursor: pointer;">Загрузить аватар</label></p>
-					<p><img id="output" width="200" /></p>	
+					<p><img id="output" /></p>	
 				</div>
 				<div class="my-name" id="my-name">
 					<h2 contentEditable=true class="fio" id="name"> </h2>
@@ -118,9 +119,9 @@
 			</div>
 		</div>
 		<div class="change" id="change">
-			<div class="hideDiv"> <button type="button" class="btn hide">Скрыть проекты</button> </div>
+			<div class="hideDiv" id="hideP"> <button type="button" class="btn hide" >Скрыть проекты</button> </div>
 			<div class="flex">
-				<div class="my-projects border">
+				<div class="my-projects border" id="projects">
 					<h2> Мои проекты </h2>
 					<!-- Контейнер слайд-шоу -->
 					<div class="slideshow-container">
@@ -154,9 +155,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="hideDiv"> <button type="button" class="btn hide">Скрыть дипломы</button> </div>
+			<div class="hideDiv" id="hideD"> <button type="button" class="btn hide">Скрыть дипломы</button> </div>
 			<div class="flex">
-				<div class="diploms">
+				<div class="diploms" id="diplomsM">
 					<h2> Мои дипломы и награды </h2>
 					<!-- Сетка: четыре столбца -->
 					<div class="row myDiploms" id="diploms">

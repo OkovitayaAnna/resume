@@ -1,11 +1,3 @@
-//read
-function read(key) {
-    var value = JSON.parse(localStorage.getItem(key));
-    return value;
-}
-
-
-
 function readText(theName, text, block, idOfBlock, classes) {
     var whatAdd = document.getElementById(`${theName}`);
 
@@ -71,7 +63,7 @@ var arr = read('skills');
 if (arr) {
     arr.forEach(element => {
         newSkill = document.createElement('div');
-        newSkill.innerHTML = `<div id="${element[0]}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> ${element[0]}</dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${element[1]}%</div> </dd> <div>`;
+        newSkill.innerHTML = `<div id="${element[0]}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${element[0]}</p></dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${element[1]}%</div> </dd> <div>`;
         document.getElementById('dl').append(newSkill);
 
         include("js/skills.colors.js");
@@ -90,10 +82,10 @@ create.addEventListener("click", function () {
     var set = [skill, prct];
 
     obj.push(set);
-    localStorage.setItem('skills', JSON.stringify(obj));
+    createOrUpdate('skills', obj);
 
     newSkill = document.createElement('div');
-    newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> ${skill}</dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
+    newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${skill}</p></dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
     document.getElementById('dl').append(newSkill);
 
     include("js/skills.colors.js");
@@ -109,18 +101,8 @@ for (let l = 0; l < dlt.length; l++) {
         var el = dlt[l].parentElement.parentElement;
         var sd = el.id;
         var remove = read('skills');
-        var i = 0;
-    
-        remove.forEach(element => {
-            if (element[0] == sd) {remove.splice(i, 1)};
-            i++;
-    
-            localStorage.setItem('skills', JSON.stringify(remove));
-        });
-    
-        el.remove();
-        i = 0;
-        location.reload();
+
+        deleteThis(0, remove, sd, 'skills', el);
     });
 }
 
@@ -130,14 +112,14 @@ var skills = document.getElementsByClassName('skills-level');
 
 for (let a = 0; a < skills.length; a++) {
     skills[a].addEventListener("blur", function () {
-        var skill = skills[a].parentElement.parentElement.children[0].innerHTML.replace(' <button class="dlt btn"> × </button> ', '');
+        var skill = skills[a].parentElement.parentElement.children[0].children[1].innerHTML;
         var prct = skills[a];
         var update = read('skills');
 
         update.forEach(element => {
             if (element[0] == skill) {element[1] = prct.innerHTML.replace('%', '')};
     
-            localStorage.setItem('skills', JSON.stringify(update));
+            createOrUpdate('skills', update);
         });
 
         prct.style.width = prct.innerHTML.replace('%', '');
@@ -160,7 +142,7 @@ createWork.addEventListener("click", function () {
     var setWork = [year, company, position];
 
     workObj.push(setWork);
-    localStorage.setItem('work', JSON.stringify(workObj));
+    createOrUpdate('work', workObj);
 
     newWorkExperience = document.createElement('div');
     newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${company} workingExperience" id="${company}"> <p class="year" contentEditable=true> ${year} </p> <p class="comp"> ${company} </p> <p class="position"> ${position} </p> </div> </div>`;
@@ -187,18 +169,7 @@ for (let t = 0; t < dltWork.length; t++) {
         var idOfThis = elementForDlt.id;
 
         work = read('work');
-        i = 0;
-
-        work.forEach(element => {
-            if (element[1] == idOfThis) {work.splice(i, 1)};
-            i++;
-    
-            localStorage.setItem('work', JSON.stringify(work));
-        });
-
-        elementForDlt.remove();
-        i = 0;
-        location.reload();
+        deleteThis(1, work, idOfThis, 'work', elementForDlt);
     });
 }
 
@@ -213,7 +184,7 @@ for (let b = 0; b < years.length; b++) {
         work.forEach(element => {
             if (element[1] == id) {element[0] = year};
     
-            localStorage.setItem('work', JSON.stringify(work));
+            createOrUpdate('work', work);
         });
     });
 }
@@ -233,7 +204,7 @@ createSchool.addEventListener("click", function () {
     var setSchool = [yearS, school, grades];
 
     schoolObj.push(setSchool);
-    localStorage.setItem('school', JSON.stringify(schoolObj));
+    createOrUpdate('school', schoolObj);
 
     newSchoolExperience = document.createElement('div');
     newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${school} schoolExperience" id="${school}"> <p class="yearS" contentEditable=true> ${yearS} </p> <p class="school"> ${school} </p> <p class="grades"> ${grades} </p> </div> </div>`;
@@ -260,18 +231,7 @@ for (let t = 0; t < dltSchool.length; t++) {
         var idOfThis = elementForDlt.id;
 
         school = read('school');
-        i = 0;
-
-        school.forEach(element => {
-            if (element[1] == idOfThis) {school.splice(i, 1)};
-            i++;
-    
-            localStorage.setItem('school', JSON.stringify(school));
-        });
-
-        elementForDlt.remove();
-        i = 0;
-        location.reload();
+        deleteThis(1, school, idOfThis, 'school', elementForDlt);
     });
 }
 
@@ -286,7 +246,8 @@ for (let b = 0; b < yearsS.length; b++) {
         school.forEach(element => {
             if (element[1] == id) {element[0] = yearS};
     
-            localStorage.setItem('school', JSON.stringify(school));
+            createOrUpdate('school', school);
         });
     });
 }
+

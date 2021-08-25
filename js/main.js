@@ -118,7 +118,7 @@ for (let b = 0; b < dltD.length; b++) {
 }
 
 
-
+include("js/dataBase.js");
 include("js/accordion.js");
 include("js/skills.colors.js");
 include("js/skills.js");
