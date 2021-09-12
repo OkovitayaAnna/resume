@@ -68,6 +68,8 @@ one.addEventListener("click", function() {
   document.getElementById('hideD').style.display = "block";
   document.getElementById('diplomsM').style.display = "block";
   document.getElementById('output').style.width = "200px";
+  document.getElementById('output').style.height = "300px";
+  document.getElementById('output').style.objectFit = "cover";
   document.getElementById('output').style.borderRadius = "20px";
   document.getElementById('information-about-me').style.flexDirection = "row";
   document.getElementById('my-photo').style.marginLeft = "0";
@@ -91,6 +93,8 @@ two.addEventListener("click", function() {
   document.getElementById('hideD').style.display = "block";
   document.getElementById('diplomsM').style.display = "block";
   document.getElementById('output').style.width = "100px";
+  document.getElementById('output').style.height = "100px";
+  document.getElementById('output').style.objectFit = "cover";
   document.getElementById('output').style.borderRadius = "200px";
   document.getElementById('information-about-me').style.flexDirection = "column";
   document.getElementById('my-photo').style.marginLeft = "auto";
@@ -117,6 +121,8 @@ three.addEventListener("click", function() {
   document.getElementById('hideD').style.display = "none";
   document.getElementById('diplomsM').style.display = "none";
   document.getElementById('output').style.width = "200px";
+  document.getElementById('output').style.height = "300px";
+  document.getElementById('output').style.objectFit = "cover";
   document.getElementById('output').style.borderRadius = "50px";
   document.getElementById('information-about-me').style.flexDirection = "row";
   document.getElementById('my-photo').style.marginLeft = "0";
@@ -136,6 +142,8 @@ if (block == 'one') {
   document.getElementById('contacts').style.display = 'block';
   change.style.flexDirection = "column";
   document.getElementById('output').style.width = "200px";
+  document.getElementById('output').style.height = "300px";
+  document.getElementById('output').style.objectFit = "cover";
   for (let c = 0; c < slides.length; c++) {
     slides[c].style.width = '500px';
     slides[c].children[0].style.height = '400px';
@@ -166,6 +174,8 @@ if (block == 'two') {
   document.getElementById('hideD').style.display = "block";
   document.getElementById('diplomsM').style.display = "block";
   document.getElementById('output').style.width = "100px";
+  document.getElementById('output').style.height = "100px";
+  document.getElementById('output').style.objectFit = "cover";
   document.getElementById('output').style.borderRadius = "200px";
   document.getElementById('information-about-me').style.flexDirection = "column";
   document.getElementById('my-photo').style.marginLeft = "auto";
@@ -189,6 +199,8 @@ if (block == 'three') {
   document.getElementById('hideD').style.display = "none";
   document.getElementById('diplomsM').style.display = "none";
   document.getElementById('output').style.width = "200px";
+  document.getElementById('output').style.height = "300px";
+  document.getElementById('output').style.objectFit = "cover";
   document.getElementById('output').style.borderRadius = "50px";
   document.getElementById('information-about-me').style.flexDirection = "row";
   document.getElementById('my-photo').style.marginLeft = "0";

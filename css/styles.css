@@ -3,6 +3,14 @@
 	to {opacity: 1;}
 }
 
+div, p {
+	text-align: left;
+}
+
+.noneLeft {
+	text-align: center;
+}
+
 .container {
 	animation-name: expandedImg;
 	animation-duration: 4s;
