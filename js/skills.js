@@ -153,7 +153,8 @@ createWork.addEventListener("click", function () {
     newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${company} workingExperience" id="${company}"> <p class="year" contentEditable=true> ${year} </p> <p class="comp"> ${company} </p> <p class="position"> ${position} </p> </div> </div>`;
     document.getElementById('workExperience').append(newWorkExperience);
 
-    location.reload();
+    var dltWork = document.getElementById(company).parentElement.children[0];
+    addDeleteWorkListener(dltWork);
 });
 
 
@@ -169,13 +170,18 @@ if (work) {
 var dltWork = document.getElementsByClassName('dltWork');
 
 for (let t = 0; t < dltWork.length; t++) {
-    dltWork[t].addEventListener("click", function () {
-        var elementForDlt = dltWork[t].nextElementSibling;
+    addDeleteWorkListener(dltWork[t]);
+}
+
+function addDeleteWorkListener(dltButton) {
+    dltButton.addEventListener("click", function () {
+        var elementForDlt = dltButton.nextElementSibling;
         var idOfThis = elementForDlt.id;
 
         work = read('work');
         deleteThis(1, work, idOfThis, 'work', elementForDlt);
-    });
+        this.remove();
+    })
 }
 
 var years = document.getElementsByClassName('year');
@@ -215,7 +221,8 @@ createSchool.addEventListener("click", function () {
     newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${school} schoolExperience" id="${school}"> <p class="yearS" contentEditable=true> ${yearS} </p> <p class="school"> ${school} </p> <p class="grades"> ${grades} </p> </div> </div>`;
     document.getElementById('schoolExperience').append(newSchoolExperience);
 
-    location.reload();
+    var dltSchool = document.getElementById(school).parentElement.children[0];
+    addDeleteSchoolListener(dltSchool);
 });
 
 
@@ -231,12 +238,17 @@ if (school) {
 var dltSchool = document.getElementsByClassName('dltSchool');
 
 for (let t = 0; t < dltSchool.length; t++) {
-    dltSchool[t].addEventListener("click", function () {
-        var elementForDlt = dltSchool[t].nextElementSibling;
+    addDeleteSchoolListener(dltSchool[t]);
+}
+
+function addDeleteSchoolListener(dltButton) {
+    dltButton.addEventListener("click", function () {
+        var elementForDlt = dltButton.nextElementSibling;
         var idOfThis = elementForDlt.id;
 
         school = read('school');
         deleteThis(1, school, idOfThis, 'school', elementForDlt);
+        this.remove();
     });
 }
 
