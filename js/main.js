@@ -71,18 +71,21 @@ crtD.addEventListener("change", function (event) {
 	readerD.onloadend = () => {
 		const base64StringD = readerD.result.replace('data:', '').replace(/^.+,/, '');
     var diploms = JSON.parse(localStorage.getItem('diploms'));
-    if (diploms == null) {diploms = [];};
+    if (diploms == null) {
+      diploms = [];
+    };
     diploms.push([base64StringD]);
 		localStorage.setItem('diploms', JSON.stringify(diploms));
 		var src = `data:image/png;base64,${base64StringD}`;
 
     newDiplom = document.createElement('div');
     newDiplom.classList = 'diplom column';
-    newDiplom.innerHTML = `<img src="${src}" alt="diplom" onclick="myFunction(this);"> <button class="dltDiplom"> × </button>`;
+    newDiplom.innerHTML = `<img src="${src}" alt="diplom" onclick="myFunction(this);"> <button class="dltDiplom btn open-button"> × </button>`;
     document.getElementById('diploms').prepend(newDiplom);
+    listenerRemoveDiplom();
+    addColorForBtn();
 	};
 	readerD.readAsDataURL(fileD);
-  location.reload();
 });
 
 const base64StringD = JSON.parse(localStorage.getItem('diploms'));
@@ -94,28 +97,50 @@ if (base64StringD != [] && base64StringD != null) {
     newDiplom.classList = 'diplom column';
     newDiplom.innerHTML = `<img src="${src}" alt="diplom" onclick="myFunction(this);"> <button class="dltDiplom btn open-button"> × </button>`;
     document.getElementById('diploms').prepend(newDiplom);
+    listenerRemoveDiplom();
   });
 }
 
+function listenerRemoveDiplom() {
+  var dltD = document.getElementsByClassName('dltDiplom');
 
-
-var dltD = document.getElementsByClassName('dltDiplom');
-
-for (let b = 0; b < dltD.length; b++) {
-  const element = dltD[b];
-  element.addEventListener("click", function () {
-    var srcEl = element.parentElement.children[0].src;
-    element.parentElement.remove();
-    var diploms = JSON.parse(localStorage.getItem('diploms'));
-    var i = 0;
-    diploms.forEach(element => {
-      if (element[0] == srcEl.replace('data:image/png;base64,', '')) {diploms.splice(i, 1)}
-      i++;
-      localStorage.setItem('diploms', JSON.stringify(diploms));
+  for (let b = 0; b < dltD.length; b++) {
+    const element = dltD[b];
+    element.addEventListener("click", function () {
+      var srcEl = element.parentElement.children[0].src;
+      element.parentElement.remove();
+      var diploms = JSON.parse(localStorage.getItem('diploms'));
+      var i = 0;
+      diploms.forEach(element => {
+        if (element[0] == srcEl.replace('data:image/png;base64,', '')) {diploms.splice(i, 1)}
+        i++;
+        localStorage.setItem('diploms', JSON.stringify(diploms));
+      });
     });
-    location.reload();
-  });
+  }
 }
+
+function addColorForBtn() {
+  var color = JSON.parse(localStorage.getItem('color'));
+  var btn = document.getElementsByClassName('btn');
+
+  if (color == 'orange') {
+    for (let c = 0; c < btn.length; c++) {
+      btn[c].style.backgroundColor = '#FF7F50';
+    }
+  }
+  if (color == 'pink') {
+    for (let c = 0; c < btn.length; c++) {
+      btn[c].style.backgroundColor = '#ffc0cb';
+    }
+  }
+  if (color == 'yellow') {
+    for (let c = 0; c < btn.length; c++) {
+      btn[c].style.backgroundColor = '#F0E68C';
+    }
+  }
+}
+
 
 
 include("js/dataBase.js");

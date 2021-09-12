@@ -88,8 +88,10 @@ create.addEventListener("click", function () {
     newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${skill}</p></dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
     document.getElementById('dl').append(newSkill);
 
+    var dltButton = document.getElementById(skill).children[0].children[0];
+    addDeleteSkillsListener(dltButton);
+
     include("js/skills.colors.js");
-    location.reload();
 });
 
 
@@ -97,15 +99,18 @@ create.addEventListener("click", function () {
 var dlt = document.getElementsByClassName('dlt');
 
 for (let l = 0; l < dlt.length; l++) {
-    dlt[l].addEventListener("click", function () {
-        var el = dlt[l].parentElement.parentElement;
+    addDeleteSkillsListener(dlt[l]);
+}
+
+function addDeleteSkillsListener(dltButton) {
+    dltButton.addEventListener("click", function () {
+        var el = dltButton.parentElement.parentElement;
         var sd = el.id;
         var remove = read('skills');
 
         deleteThis(0, remove, sd, 'skills', el);
-    });
+    });   
 }
-
 
 //update
 var skills = document.getElementsByClassName('skills-level');

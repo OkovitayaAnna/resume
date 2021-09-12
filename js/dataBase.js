@@ -22,5 +22,4 @@ function deleteThis(id, array, whatDelete, key, elementForDlt) {
 
     elementForDlt.remove();
     i = 0;
-    location.reload();
 }

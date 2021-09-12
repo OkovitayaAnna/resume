@@ -9,10 +9,23 @@
 	<meta name="keywords" content="resume">
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $("#btnPrint").live("click", function () {
+            var divContents = $("#main").html();
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(divContents);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+    </script>
 </head>
 
 <body>
-	<div class="main-container border orange-main" id="main">
+	<div class="main-container border orange-main edit-mode" id="main">
 		<div class="flex">
 			<div class="l">
 				<img src="images/1.png" class="one" id="one">
@@ -24,8 +37,6 @@
 				<img src="images/yellow-circle.png" class="yellow" id="yellow">
 				<img src="images/pink-circle.png" class="pink" id="pink">
 			</div>
-		</div>
-		<div class="my-photo2" id="my-photo2"> 
 		</div>
 		<div class="flex">
 			<div class="information-about-me border" id="information-about-me">
@@ -182,25 +193,26 @@
 			</div>
 		</div>
 	</div>
+	<input class="btn" type="button" value="Скачать как pdf" id="btnPrint" />
 	<script src="js/main.js"></script>
 	<script>
 		var loadFile = function(event) {
-		  const file = event.target.files[0];
-		  const reader = new FileReader();
-		  reader.onloadend = () => {
-			const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
-			localStorage.setItem('avatar', base64String);
-			var image = document.getElementById('output');
-			image.src = `data:image/png;base64,${base64String}`;
-		  };
-		  reader.readAsDataURL(file);
+			const file = event.target.files[0];
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+				localStorage.setItem('avatar', base64String);
+				var image = document.getElementById('output');
+				image.src = `data:image/png;base64,${base64String}`;
+			};
+			reader.readAsDataURL(file);
 		};
 		const base64String = localStorage.getItem('avatar');
 		if (base64String) {
-		  var image = document.getElementById('output');
-		  image.src = `data:image/png;base64,${base64String}`;
+			var image = document.getElementById('output');
+			image.src = `data:image/png;base64,${base64String}`;
 		}
-	  </script>
+	</script>
 </body>
 
 </html>
