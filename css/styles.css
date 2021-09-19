@@ -282,7 +282,7 @@ li {
 
 .main-container {
 	align-items: center;
-	background-color: #FFA07A;
+	background-color: rgb(231, 231, 231);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -317,10 +317,11 @@ li {
 	padding: 0px;
 }
 
-.orange {
+.white {
 	cursor: pointer;
 	margin: 5px;
 	width: 20px;
+	filter: contrast(0%) brightness(300%);
 }
 
 .pink {
@@ -348,8 +349,8 @@ li {
 	filter: contrast(175%) brightness(70%);
 }
 
-.orange-main {
-	background-color: #FFA07A;
+.white-main {
+	background-color: rgb(231, 231, 231);;
 	display: flex;
 	flex-direction: column;
 }

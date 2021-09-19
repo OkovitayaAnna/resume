@@ -1,4 +1,4 @@
-var orange = document.getElementById('orange');
+var white = document.getElementById('white');
 var yellow = document.getElementById('yellow');
 var pink = document.getElementById('pink');
 var one = document.getElementById('one');
@@ -11,23 +11,23 @@ var change = document.getElementById('change');
 var slides = document.getElementsByClassName('mySlides');
 var i = 0;
 
-orange.addEventListener("click", function() {
-  main.classList.add("orange-main");
+white.addEventListener("click", function() {
+  main.classList.add("white-main");
   if (i == 1) {main.classList.remove("yellow-main");}
   if (i == 2) {main.classList.remove("pink-main");}
   i = 0;
   for (let c = 0; c < forms.length; c++) {
-    forms[c].style.backgroundColor = '#FF7F50';
+    forms[c].style.backgroundColor = '#C0C0C0';
   }
   for (let c = 0; c < btn.length; c++) {
-    btn[c].style.backgroundColor = '#FF7F50';
+    btn[c].style.backgroundColor = '#C0C0C0';
   }
-  localStorage.setItem('color', JSON.stringify('orange'));
+  localStorage.setItem('color', JSON.stringify('white'));
 });
 
 yellow.addEventListener("click", function() {
   main.classList.add("yellow-main");
-  if (i == 0) {main.classList.remove("orange-main");}
+  if (i == 0) {main.classList.remove("white-main");}
   if (i == 2) {main.classList.remove("pink-main");}
   i = 1;
   for (let c = 0; c < forms.length; c++) {
@@ -41,7 +41,7 @@ yellow.addEventListener("click", function() {
 
 pink.addEventListener("click", function() {
   main.classList.add("pink-main");
-  if (i == 0) {main.classList.remove("orange-main");}
+  if (i == 0) {main.classList.remove("white-main");}
   if (i == 1) {main.classList.remove("yellow-main");}
   i = 2;
   for (let c = 0; c < forms.length; c++) {
@@ -209,22 +209,22 @@ if (block == 'three') {
   document.getElementById('my-name').style.marginRight = "0";
 }
 
-if (color == 'orange') {
-  main.classList.add("orange-main");
+if (color == 'white') {
+  main.classList.add("white-main");
   if (i == 1) {main.classList.remove("yellow-main");}
   if (i == 2) {main.classList.remove("pink-main");}
   i = 0;
   for (let c = 0; c < forms.length; c++) {
-    forms[c].style.backgroundColor = '#FF7F50';
+    forms[c].style.backgroundColor = '#C0C0C0';
   }
   for (let c = 0; c < btn.length; c++) {
-    btn[c].style.backgroundColor = '#FF7F50';
+    btn[c].style.backgroundColor = '#C0C0C0';
   }
 }
 
 if (color == 'yellow') {
   main.classList.add("yellow-main");
-  if (i == 0) {main.classList.remove("orange-main");}
+  if (i == 0) {main.classList.remove("white-main");}
   if (i == 2) {main.classList.remove("pink-main");}
   i = 1;
   for (let c = 0; c < forms.length; c++) {
@@ -237,7 +237,7 @@ if (color == 'yellow') {
 
 if (color == 'pink') {
   main.classList.add("pink-main");
-  if (i == 0) {main.classList.remove("orange-main");}
+  if (i == 0) {main.classList.remove("white-main");}
   if (i == 1) {main.classList.remove("yellow-main");}
   i = 2;
   for (let c = 0; c < forms.length; c++) {
