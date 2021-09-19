@@ -239,12 +239,30 @@ a {
 	width: 30%;
 }
 
+.schoolExp {
+	display: flex;
+	flex-direction: row;
+	width: 945px;
+    justify-content: center;
+}
+
+.schoolExperience {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+    justify-content: center;
+}
+
 .information {
 	display: none;
 }
 
 .grades {
 	font-size: 15px;
+	display: flex;
+	width: 40%;
+	justify-content: right;
+    margin-right: 10px;
 }
 
 .languages {
@@ -623,6 +641,7 @@ li {
 	right: 15px;
 	font-size: 35px;
 	cursor: pointer;
+	margin-top: 35px;
   }
 
 .open-button {
@@ -630,7 +649,6 @@ li {
 	border-radius: 360px;
 	width: 30px;
 	margin-bottom: 20px;
-	position: static;
 	height: 30px;
 }
 
@@ -647,7 +665,7 @@ li {
 }
 
 .form-container {
-	width: 200px;
+	width: 595px;
 	padding: 10px;
 	border: none;
 	cursor: pointer;
@@ -682,6 +700,8 @@ li {
 	display: flex;
 	justify-content: center;
 	height: 30px;
+	width: 30px;
+	border-radius: 360px;
 }
 
 .workForm input[type=text] {
@@ -694,6 +714,15 @@ li {
 }
 
 .dltWork {
+	cursor: pointer;
+	border-radius: 360px;
+	margin: 10px;
+	width: 30px;
+	height: 30px;
+	margin-bottom: 20px;
+}
+
+.dltSchool {
 	cursor: pointer;
 	border-radius: 360px;
 	margin: 10px;
@@ -719,17 +748,40 @@ li {
 .position {
 	display: flex;
 	width: 40%;
-	justify-content: center;
+	justify-content: right;
+    margin-right: 10px;
 }
 
 .comp {
 	display: flex;
 	width: 25%;
-	justify-content: center;
+	justify-content: left;
+	margin-left: 90px;
 }
 
 .year {
 	display: flex;
 	width: 35%;
-	justify-content: center;
+	justify-content: left;
+	margin-left: 40px;
+}
+
+.yearS {
+	display: flex;
+	width: 35%;
+	justify-content: left;
+	margin-left: 40px;
+}
+
+.school {
+	display: flex;
+	width: 25%;
+	justify-content: left;
+	margin-left: 90px;
+}
+
+#expandedImg {
+    height: 550px;
+    object-fit: cover;
+    margin-top: 35px;
 }
