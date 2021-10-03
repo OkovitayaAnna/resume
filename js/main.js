@@ -143,6 +143,24 @@ function addColorForBtn() {
 
 
 
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+var eM = false;
+
+for (key in params) {
+  if (key == "editMode") {
+    eM = true;
+  }
+}
+
+if (eM == true) {
+  document.getElementById('main').classList.add("edit-mode");
+} else {
+  document.getElementById('main').classList.remove("edit-mode");
+}
+
+
+
 include("js/dataBase.js");
 include("js/accordion.js");
 include("js/skills.colors.js");

@@ -68,12 +68,17 @@ a {
 	margin: 10px;
 }
 
+.edit-mode .btn {
+	display: block;
+}
+
 .btn {
 	cursor: pointer;
 	color: #333333;
 	background-color: #C0C0C0;
 	border: 1px solid #333333;
 	border-radius: 10px;
+	display: none;
 	font-size: 14px;
 	margin-top: 10px;
 	margin-bottom: 20px;
@@ -82,7 +87,12 @@ a {
 	padding: 5px;
 }
 
+.edit-mode .btnAvatar {
+	display: block;
+}
+
 .btnAvatar {
+	display: none;
 	margin: 0;
 }
 
@@ -106,12 +116,15 @@ a {
 	margin-bottom: auto;
 	margin-left: auto;
 	margin-right: auto;
-	display: flex;
 	justify-content: center;
 }
 
-.crtD {
+.edit-mode .crtD {
 	display: flex;
+}
+
+.crtD {
+	display: none;
 	justify-content: center;
 }
 
@@ -287,7 +300,20 @@ a {
 	margin-top: 15px;
 }
 
+.edit-mode .l {
+	display: block;
+}
+
+.l {
+	display: none;
+}
+
+.edit-mode .r {
+	display: block;
+}
+
 .r {
+	display: none;
 	margin-left: auto;
 }
 
@@ -528,7 +554,6 @@ a {
 
 .workButton {
 	margin: 10px;
-	display: flex;
 	justify-content: center;
 	height: 30px;
 	width: 30px;
@@ -590,18 +615,30 @@ a {
 	margin-left: 90px;
 }
 
+.edit-mode .year {
+	margin-left: 40px;
+	margin-right: 0;
+}
+
 .year {
 	display: flex;
 	width: 35%;
 	justify-content: left;
+	margin-left: 10px;
+	margin-right: 80px;
+}
+
+.edit-mode .yearS {
 	margin-left: 40px;
+	margin-right: 0;
 }
 
 .yearS {
 	display: flex;
 	width: 35%;
 	justify-content: left;
-	margin-left: 40px;
+	margin-left: 10px;
+	margin-right: 80px;
 }
 
 .school {
