@@ -53,13 +53,59 @@ function showSlides(n) {
 
 
 
-var hide = document.getElementsByClassName('hide');
+var hidePt = JSON.parse(localStorage.getItem('hideP'));
+var hideDt = JSON.parse(localStorage.getItem('hideD'));
 
-for (i = 0; i < hide.length; i++) {
-  hide[i].addEventListener("click", function () {
-    this.parentElement.nextElementSibling.style.display = "none";
-  });
+if (hidePt == true) {
+  document.getElementById('hidePr').parentElement.nextElementSibling.style.display = "none";
+  document.getElementById('hidePr').classList.add("hiden");
+  document.getElementById('hidePr').innerText = "Отобразить проекты";
+} else {
+  document.getElementById('hidePr').classList.remove("hiden");
+  document.getElementById('hidePr').parentElement.nextElementSibling.style.display = "flex";
+  document.getElementById('hidePr').innerText = "Скрыть проекты";
 }
+
+if (hideDt == true) {
+  document.getElementById('hideDip').parentElement.nextElementSibling.style.display = "none";
+  document.getElementById('hideDip').classList.add("hiden");
+  document.getElementById('hideDip').innerText = "Отобразить дипломы";
+} else {
+  document.getElementById('hideDip').classList.remove("hiden");
+  document.getElementById('hideDip').parentElement.nextElementSibling.style.display = "flex";
+  document.getElementById('hideDip').innerText = "Скрыть дипломы";
+}
+
+var hideP = document.getElementById('hidePr');
+var hideD = document.getElementById('hideDip');
+
+hideP.addEventListener("click", function () {
+  if (this.classList.contains("hiden") == false) {
+    this.parentElement.nextElementSibling.style.display = "none";
+    this.classList.add("hiden");
+    hideP.innerText = "Отобразить проекты";
+    localStorage.setItem('hideP', true);
+  } else {
+    this.classList.remove("hiden");
+    this.parentElement.nextElementSibling.style.display = "flex";
+    hideP.innerText = "Скрыть проекты";
+    localStorage.setItem('hideP', false);
+  }
+});
+
+hideD.addEventListener("click", function () {
+  if (this.classList.contains("hiden") == false) {
+    this.parentElement.nextElementSibling.style.display = "none";
+    this.classList.add("hiden");
+    hideD.innerText = "Отобразить дипломы";
+    localStorage.setItem('hideD', true);
+  } else {
+    this.classList.remove("hiden");
+    this.parentElement.nextElementSibling.style.display = "flex";
+    hideD.innerText = "Скрыть дипломы";
+    localStorage.setItem('hideD', false);
+  }
+});
 
 
 
@@ -124,9 +170,9 @@ function addColorForBtn() {
   var color = JSON.parse(localStorage.getItem('color'));
   var btn = document.getElementsByClassName('btn');
 
-  if (color == 'orange') {
+  if (color == 'white') {
     for (let c = 0; c < btn.length; c++) {
-      btn[c].style.backgroundColor = '#FF7F50';
+      btn[c].style.backgroundColor = '#C0C0C0';
     }
   }
   if (color == 'pink') {

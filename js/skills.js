@@ -90,6 +90,7 @@ create.addEventListener("click", function () {
 
     var dltButton = document.getElementById(skill).children[0].children[0];
     addDeleteSkillsListener(dltButton);
+    addColorForBtn();
 
     include("js/skills.colors.js");
 });
@@ -155,6 +156,7 @@ createWork.addEventListener("click", function () {
 
     var dltWork = document.getElementById(company).parentElement.children[0];
     addDeleteWorkListener(dltWork);
+    addColorForBtn();
 });
 
 
@@ -223,6 +225,7 @@ createSchool.addEventListener("click", function () {
 
     var dltSchool = document.getElementById(school).parentElement.children[0];
     addDeleteSchoolListener(dltSchool);
+    addColorForBtn();
 });
 
 

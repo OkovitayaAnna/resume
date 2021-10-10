@@ -121,10 +121,12 @@
 			</div>
 		</div>
 		<div class="change" id="change">
-			<div class="hideDiv" id="hideP"> <button type="button" class="btn hide" >Скрыть проекты</button> </div>
+			<div class="hideDiv" id="hideP"> <button type="button" class="btn hide" id="hidePr">Скрыть проекты</button> </div>
 			<div class="flex">
 				<div class="my-projects border" id="projects">
 					<h2> Мои проекты </h2>
+					<input type="file" class="crtPr btn" id="crtPr" style="display: none;">
+					<label for="crtPr" style="cursor: pointer; text-align: center;" class="btn crtPr">+</label>
 					<!-- Контейнер слайд-шоу -->
 					<div class="slideshow-container">
 
@@ -134,30 +136,18 @@
 						<div class="text" contentEditable=true> Подпись один </div>
 						</div>
 					
-						<div class="mySlides fade">
-						<img src="images/it-project2.png" style="width:100%; height:400px">
-						<div class="text" contentEditable=true> Подпись два </div>
-						</div>
-					
-						<div class="mySlides fade">
-						<img src="images/it-project1.jpg" style="width:100%; height:400px">
-						<div class="text" contentEditable=true> Подпись три </div>
-						</div>
-					
 						<!-- Вперед и назад кнопки -->
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
 					
 					<!-- Точки/круги -->
-					<div style="text-align:center">
+					<div style="text-align:center" id="dots">
 						<span class="dot" onclick="currentSlide(1)"></span>
-						<span class="dot" onclick="currentSlide(2)"></span>
-						<span class="dot" onclick="currentSlide(3)"></span>
 					</div>
 				</div>
 			</div>
-			<div class="hideDiv" id="hideD"> <button type="button" class="btn hide">Скрыть дипломы</button> </div>
+			<div class="hideDiv" id="hideD"> <button type="button" class="btn hide" id="hideDip">Скрыть дипломы</button> </div>
 			<div class="flex">
 				<div class="diploms" id="diplomsM">
 					<h2> Мои дипломы и награды </h2>
