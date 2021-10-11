@@ -120,6 +120,17 @@ a {
 	justify-content: center;
 }
 
+.crtPr {
+	width: 30px;
+	height: 30px;
+	border-radius: 360px;
+	margin-top: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 6px;
+	justify-content: center;
+}
+
 .edit-mode .crtD {
 	display: flex;
 }
