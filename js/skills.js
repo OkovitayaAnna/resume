@@ -6,7 +6,7 @@ function readText(theName, text, block, idOfBlock, classes) {
 
     if (add == null || add == undefined) {add = `${text}`}
     newBlock = document.createElement(block);
-    newBlock.contentEditable = 'true';
+    if (eM == true) {newBlock.contentEditable = 'true';}
     newBlock.id = theName;
     newBlock.className = classes;
     newBlock.innerHTML = `${add}`;
@@ -81,16 +81,20 @@ create.addEventListener("click", function () {
     if (ob) {var obj = ob;} else {var obj = [];};
     var set = [skill, prct];
 
-    obj.push(set);
-    createOrUpdate('skills', obj);
-
     newSkill = document.createElement('div');
     newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${skill}</p></dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
-    document.getElementById('dl').append(newSkill);
+    var addingSkill = isAvailableSkills(prct);
+    if (addingSkill == true) {
+        obj.push(set);
+        createOrUpdate('skills', obj);
 
-    var dltButton = document.getElementById(skill).children[0].children[0];
-    addDeleteSkillsListener(dltButton);
-    addColorForBtn();
+        document.getElementById('dl').append(newSkill);
+
+        var dltButton = document.getElementById(skill).children[0].children[0];
+        addDeleteSkillsListener(dltButton);
+        addColorForBtn();
+        include("js/update.js");
+    }
 
     include("js/skills.colors.js");
 });
@@ -111,26 +115,6 @@ function addDeleteSkillsListener(dltButton) {
 
         deleteThis(0, remove, sd, 'skills', el);
     });   
-}
-
-//update
-var skills = document.getElementsByClassName('skills-level');
-
-for (let a = 0; a < skills.length; a++) {
-    skills[a].addEventListener("blur", function () {
-        var skill = skills[a].parentElement.parentElement.children[0].children[1].innerHTML;
-        var prct = skills[a];
-        var update = read('skills');
-
-        update.forEach(element => {
-            if (element[0] == skill) {element[1] = prct.innerHTML.replace('%', '')};
-    
-            createOrUpdate('skills', update);
-        });
-
-        prct.style.width = prct.innerHTML.replace('%', '');
-        include("js/skills.colors.js");
-    });
 }
 
 
@@ -157,6 +141,7 @@ createWork.addEventListener("click", function () {
     var dltWork = document.getElementById(company).parentElement.children[0];
     addDeleteWorkListener(dltWork);
     addColorForBtn();
+    include("js/update.js");
 });
 
 
@@ -186,22 +171,6 @@ function addDeleteWorkListener(dltButton) {
     })
 }
 
-var years = document.getElementsByClassName('year');
-
-for (let b = 0; b < years.length; b++) {
-    years[b].addEventListener("blur", function () {
-        work = read('work');
-        year = years[b].innerHTML;
-        id = years[b].parentElement.id;
-
-        work.forEach(element => {
-            if (element[1] == id) {element[0] = year};
-    
-            createOrUpdate('work', work);
-        });
-    });
-}
-
 
 
 var school = read('school');
@@ -226,6 +195,7 @@ createSchool.addEventListener("click", function () {
     var dltSchool = document.getElementById(school).parentElement.children[0];
     addDeleteSchoolListener(dltSchool);
     addColorForBtn();
+    include("js/update.js");
 });
 
 
@@ -254,20 +224,3 @@ function addDeleteSchoolListener(dltButton) {
         this.remove();
     });
 }
-
-var yearsS = document.getElementsByClassName('yearS');
-
-for (let b = 0; b < yearsS.length; b++) {
-    yearsS[b].addEventListener("blur", function () {
-        school = read('school');
-        yearS = yearsS[b].innerHTML;
-        id = yearsS[b].parentElement.id;
-
-        school.forEach(element => {
-            if (element[1] == id) {element[0] = yearS};
-    
-            createOrUpdate('school', school);
-        });
-    });
-}
-

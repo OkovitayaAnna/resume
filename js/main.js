@@ -212,3 +212,5 @@ include("js/accordion.js");
 include("js/skills.colors.js");
 include("js/skills.js");
 include("js/circles.js");
+include("js/isAvailable.js");
+include("js/update.js");

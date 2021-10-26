@@ -11,6 +11,13 @@ div, p {
 	text-align: center;
 }
 
+#output {
+	width: 200px;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 20px;
+}
+
 #my-photo {
 	display: flex;
 	flex-direction: column;
@@ -94,6 +101,12 @@ a {
 .btnAvatar {
 	display: none;
 	margin: 0;
+}
+
+.not-available {
+	text-align: left;
+	color: rgb(126, 0, 0);
+	display: none;
 }
 
 .contacts {

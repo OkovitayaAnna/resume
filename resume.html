@@ -35,14 +35,14 @@
 					<p class="noneLeft"><img id="output" /></p>	
 				</div>
 				<div class="my-name" id="my-name">
-					<h2 contentEditable=true class="fio" id="name"> </h2>
-					<p class="hb" id="hb" contentEditable=true> </p>
-					<p class="none-marging-and-padding" contentEditable=true id="sp"> </p>
-					<p class="biography" id="biography" contentEditable=true> </p>
+					<h2 class="fio" id="name"> </h2>
+					<p class="hb" id="hb"> </p>
+					<p class="none-marging-and-padding" id="sp"> </p>
+					<p class="biography" id="biography"> </p>
 					<div class="contacts none-marging-and-padding" id="contacts">
-						<p class="none-marging-and-padding" contentEditable=true id="phone"> </p>
-						<p class="none-marging-and-padding" contentEditable=true id="dop"> </p>
-						<p class="none-marging-and-padding" contentEditable=true id="email"> </p>
+						<p class="none-marging-and-padding" id="phone"> </p>
+						<p class="none-marging-and-padding" id="dop"> </p>
+						<p class="none-marging-and-padding" id="email"> </p>
 					</div>
 				</div>
 			</div>
@@ -83,7 +83,7 @@
 								<input type="text" placeholder="Школа/университет" name="school" class="form" id="school" required>
 								<input type="text" placeholder="Успеваемость" name="grades" class="form" id="grades" required>
 							</div>
-	
+
 							<button type="button" class="btn b" id="crtSchool">Добавить</button>
 							<button type="button" class="btn cancel b" onclick="closeForm('myForm3')">Закрыть</button>
 						</form>
@@ -104,6 +104,8 @@
 						<input type="text" placeholder="Название навыка" name="skill" class="form" id="skill-c" required>
 						<input type="text" placeholder="Кол-во процентов" name="percentage"class="form" id="percentage" required>
 					</div>
+
+					<p class="not-available" id="not-available">Ошибка: Значение кол-ва процентов должно быть от 5 до 100</p>
 
 					<button type="button" class="btn b" id="crt">Добавить</button>
 					<button type="button" class="btn cancel b" onclick="closeForm('myForm')">Закрыть</button>
