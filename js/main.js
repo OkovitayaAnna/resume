@@ -126,7 +126,7 @@ crtD.addEventListener("change", function (event) {
 
     newDiplom = document.createElement('div');
     newDiplom.classList = 'diplom column';
-    newDiplom.innerHTML = `<img src="${src}" alt="diplom" onclick="myFunction(this);"> <button class="dltDiplom btn open-button"> × </button>`;
+    newDiplom.innerHTML = `<img src="${src}" onclick="myFunction(this);"> <button class="dltDiplom btn open-button"> × </button>`;
     document.getElementById('diploms').prepend(newDiplom);
     listenerRemoveDiplom();
     addColorForBtn();
@@ -141,7 +141,7 @@ if (base64StringD != [] && base64StringD != null) {
   
     newDiplom = document.createElement('div');
     newDiplom.classList = 'diplom column';
-    newDiplom.innerHTML = `<img src="${src}" alt="diplom" onclick="myFunction(this);"> <button class="dltDiplom btn open-button"> × </button>`;
+    newDiplom.innerHTML = `<img src="${src}" onclick="myFunction(this);"> <button class="dltDiplom btn open-button"> × </button>`;
     document.getElementById('diploms').prepend(newDiplom);
     listenerRemoveDiplom();
   });
@@ -193,10 +193,8 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 var eM = false;
 
-for (key in params) {
-  if (key == "editMode") {
-    eM = true;
-  }
+if (params.editMode && params.editMode == "true") {
+  eM = true;
 }
 
 if (eM == true) {
@@ -204,6 +202,68 @@ if (eM == true) {
 } else {
   document.getElementById('main').classList.remove("edit-mode");
 }
+
+
+
+/*
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
+readTextFile('file://C:/Users/Общий/Desktop/Ann-portfolio/my-portfolio/МАН2021/js/kontent.txt');
+*/
+
+/*
+var reader = new FileReader();
+
+reader.onloadend = function(event) {
+ var contents = event.target.result,
+  error = event.target.error;
+ if (error != null) {
+  switch (error.code) {
+   case error.ENCODING_ERR:
+    console.error("Проблемы кодировки!");
+    break;
+
+   case error.NOT_FOUND_ERR:
+    console.error("Файл не найден!");
+    break;
+
+   case error.NOT_READABLE_ERR:
+    console.error("Файл не может быть прочитан!");
+    break;
+
+   case error.SECURITY_ERR:
+    console.error("Проблема безопасности в файл!");
+    break;
+
+   default:
+    console.error("Я понятия не имею, что случилось!");
+  }
+ } else {
+  progressNode.max = 1;
+  progressNode.value = 1;
+  console.log("Contents: " + contents);
+ }
+};
+
+reader.readAsText('file://C:/Users/Общий/Desktop/Ann-portfolio/my-portfolio/МАН2021/js/kontent.txt');
+*/
+
 
 
 

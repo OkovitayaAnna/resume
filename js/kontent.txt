@@ -1,0 +1,6 @@
+{
+    rghfg {
+        sdg : fbbf;
+        fgh : dfdh;
+    }
+}

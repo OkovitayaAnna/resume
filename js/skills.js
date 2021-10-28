@@ -63,7 +63,10 @@ var arr = read('skills');
 if (arr) {
     arr.forEach(element => {
         newSkill = document.createElement('div');
-        newSkill.innerHTML = `<div id="${element[0]}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${element[0]}</p></dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${element[1]}%</div> </dd> <div>`;
+        newSkill.innerHTML = `<div id="${element[0]}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${element[0]}</p></dt> <dd class="prct"> <div class="skills-level">${element[1]}%</div> </dd> <div>`;
+        if (eM == true) {
+            newSkill.innerHTML = `<div id="${element[0]}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${element[0]}</p></dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${element[1]}%</div> </dd> <div>`;
+        }
         document.getElementById('dl').append(newSkill);
 
         include("js/skills.colors.js");
@@ -82,12 +85,15 @@ create.addEventListener("click", function () {
     var set = [skill, prct];
 
     newSkill = document.createElement('div');
-    newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${skill}</p></dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
+    newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${skill}</p></dt> <dd class="prct"> <div class="skills-level">${prct}%</div> </dd> </div>`;
     var addingSkill = isAvailableSkills(prct);
     if (addingSkill == true) {
         obj.push(set);
         createOrUpdate('skills', obj);
 
+        if (eM == true) {
+            newSkill.innerHTML = `<div id="${skill}" class="skill"> <dt class="programming-language"> <button class="dlt btn"> × </button> <p class="skillLanguage">${skill}</p></dt> <dd class="prct"> <div class="skills-level" contentEditable=true>${prct}%</div> </dd> </div>`;
+        }
         document.getElementById('dl').append(newSkill);
 
         var dltButton = document.getElementById(skill).children[0].children[0];
@@ -135,7 +141,10 @@ createWork.addEventListener("click", function () {
     createOrUpdate('work', workObj);
 
     newWorkExperience = document.createElement('div');
-    newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${company} workingExperience" id="${company}"> <p class="year" contentEditable=true> ${year} </p> <p class="comp"> ${company} </p> <p class="position"> ${position} </p> </div> </div>`;
+    newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${company} workingExperience" id="${company}"> <p class="year"> ${year} </p> <p class="comp"> ${company} </p> <p class="position"> ${position} </p> </div> </div>`;
+    if (eM == true) {
+        newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${company} workingExperience" id="${company}"> <p class="year" contentEditable=true> ${year} </p> <p class="comp"> ${company} </p> <p class="position"> ${position} </p> </div> </div>`;
+    }
     document.getElementById('workExperience').append(newWorkExperience);
 
     var dltWork = document.getElementById(company).parentElement.children[0];
@@ -149,7 +158,10 @@ createWork.addEventListener("click", function () {
 if (work) {
     work.forEach(element => {
         newWorkExperience = document.createElement('div');
-        newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${element[1]} workingExperience" id="${element[1]}"> <p class="year" contentEditable=true> ${element[0]} </p> <p class="comp"> ${element[1]} </p> <p class="position"> ${element[2]} </p> </div> </div>`;
+        newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${element[1]} workingExperience" id="${element[1]}"> <p class="year"> ${element[0]} </p> <p class="comp"> ${element[1]} </p> <p class="position"> ${element[2]} </p> </div> </div>`;
+        if (eM == true) {
+            newWorkExperience.innerHTML = `<div class="workExp"> <button class="dltWork btn"> × </button> <div class="${element[1]} workingExperience" id="${element[1]}"> <p class="year" contentEditable=true> ${element[0]} </p> <p class="comp"> ${element[1]} </p> <p class="position"> ${element[2]} </p> </div> </div>`;
+        }
         document.getElementById('workExperience').append(newWorkExperience);
 });
 }
@@ -189,7 +201,10 @@ createSchool.addEventListener("click", function () {
     createOrUpdate('school', schoolObj);
 
     newSchoolExperience = document.createElement('div');
-    newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${school} schoolExperience" id="${school}"> <p class="yearS" contentEditable=true> ${yearS} </p> <p class="school"> ${school} </p> <p class="grades"> ${grades} </p> </div> </div>`;
+    newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${school} schoolExperience" id="${school}"> <p class="yearS"> ${yearS} </p> <p class="school"> ${school} </p> <p class="grades"> ${grades} </p> </div> </div>`;
+    if (eM == true) {
+        newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${school} schoolExperience" id="${school}"> <p class="yearS" contentEditable=true> ${yearS} </p> <p class="school"> ${school} </p> <p class="grades"> ${grades} </p> </div> </div>`;
+    }
     document.getElementById('schoolExperience').append(newSchoolExperience);
 
     var dltSchool = document.getElementById(school).parentElement.children[0];
@@ -203,7 +218,10 @@ createSchool.addEventListener("click", function () {
 if (school) {
     school.forEach(element => {
         newSchoolExperience = document.createElement('div');
-        newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${element[1]} schoolExperience" id="${element[1]}"> <p class="yearS" contentEditable=true> ${element[0]} </p> <p class="school"> ${element[1]} </p> <p class="grades"> ${element[2]} </p> </div> </div>`;
+        newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${element[1]} schoolExperience" id="${element[1]}"> <p class="yearS"> ${element[0]} </p> <p class="school"> ${element[1]} </p> <p class="grades"> ${element[2]} </p> </div> </div>`;
+        if (eM == true) {
+            newSchoolExperience.innerHTML = `<div class="schoolExp"> <button class="dltSchool btn"> × </button> <div class="${element[1]} schoolExperience" id="${element[1]}"> <p class="yearS" contentEditable=true> ${element[0]} </p> <p class="school"> ${element[1]} </p> <p class="grades"> ${element[2]} </p> </div> </div>`;
+        }
         document.getElementById('schoolExperience').append(newSchoolExperience);
 });
 }
