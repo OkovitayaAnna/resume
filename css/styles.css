@@ -397,6 +397,7 @@ a {
 
 /* Вперед и назад кнопки */
 .prev, .next {
+  display: none;
   cursor: pointer;
   position: absolute;
   top: 50%;

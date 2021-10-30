@@ -12,11 +12,6 @@ function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-// Элементы управления миниатюрами изображений
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
 
 function myFunction(imgs) {
   // Получить развернутое изображение
@@ -47,8 +42,10 @@ function showSlides(n) {
   for (i = 0; i < dots.length; i++) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  if (slides[slideIndex-1]) {
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
 }
 
 
@@ -264,6 +261,43 @@ reader.onloadend = function(event) {
 reader.readAsText('file://C:/Users/Общий/Desktop/Ann-portfolio/my-portfolio/МАН2021/js/kontent.txt');
 */
 
+
+
+var crtPr = document.getElementById('crtPr');
+
+crtPr.addEventListener("change", function (event) {
+  const fileD = event.target.files[0];
+	const readerD = new FileReader();
+	readerD.onloadend = () => {
+		const base64StringD = readerD.result.replace('data:', '').replace(/^.+,/, '');
+    var projects = JSON.parse(localStorage.getItem('projects'));
+    if (projects == null) {
+      projects = [];
+    };
+    projects.push([base64StringD]);
+		localStorage.setItem('projects', JSON.stringify(projects));
+		var srcP = `data:image/png;base64,${base64StringD}`;
+
+    newProject = document.createElement('div');
+    newProject.classList = 'mySlides fade';
+    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div>`;
+    document.getElementById('projects-container').append(newProject);
+    //listenerRemoveProject();
+    var numberDot = projects.length;
+    newDot = document.createElement('span');
+    newDot.classList = 'dot';
+    newDot.id = `${numberDot}`
+    newDot.addEventListener("click", function () {
+      var number = this.id;
+      showSlides(slideIndex = Number(number));
+    });
+    document.getElementById('dots').append(newDot);
+    document.getElementById('prev').style.display = "block";
+    document.getElementById('next').style.display = "block";
+    addColorForBtn();
+	};
+	readerD.readAsDataURL(fileD);
+});
 
 
 
