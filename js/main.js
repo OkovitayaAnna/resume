@@ -135,6 +135,9 @@ const base64StringD = JSON.parse(localStorage.getItem('diploms'));
 if (base64StringD != [] && base64StringD != null) {
   base64StringD.forEach(element => {
     var src = `data:image/png;base64,${element}`;
+    if (element[0].includes('diplom')) {
+      src = element;
+    }
   
     newDiplom = document.createElement('div');
     newDiplom.classList = 'diplom column';
@@ -202,67 +205,6 @@ if (eM == true) {
 
 
 
-/*
-function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-}
-
-readTextFile('file://C:/Users/Общий/Desktop/Ann-portfolio/my-portfolio/МАН2021/js/kontent.txt');
-*/
-
-/*
-var reader = new FileReader();
-
-reader.onloadend = function(event) {
- var contents = event.target.result,
-  error = event.target.error;
- if (error != null) {
-  switch (error.code) {
-   case error.ENCODING_ERR:
-    console.error("Проблемы кодировки!");
-    break;
-
-   case error.NOT_FOUND_ERR:
-    console.error("Файл не найден!");
-    break;
-
-   case error.NOT_READABLE_ERR:
-    console.error("Файл не может быть прочитан!");
-    break;
-
-   case error.SECURITY_ERR:
-    console.error("Проблема безопасности в файл!");
-    break;
-
-   default:
-    console.error("Я понятия не имею, что случилось!");
-  }
- } else {
-  progressNode.max = 1;
-  progressNode.value = 1;
-  console.log("Contents: " + contents);
- }
-};
-
-reader.readAsText('file://C:/Users/Общий/Desktop/Ann-portfolio/my-portfolio/МАН2021/js/kontent.txt');
-*/
-
-
-
 var crtPr = document.getElementById('crtPr');
 
 crtPr.addEventListener("change", function (event) {
@@ -280,24 +222,74 @@ crtPr.addEventListener("change", function (event) {
 
     newProject = document.createElement('div');
     newProject.classList = 'mySlides fade';
-    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div>`;
+    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
     document.getElementById('projects-container').append(newProject);
-    //listenerRemoveProject();
-    var numberDot = projects.length;
-    newDot = document.createElement('span');
-    newDot.classList = 'dot';
-    newDot.id = `${numberDot}`
-    newDot.addEventListener("click", function () {
-      var number = this.id;
-      showSlides(slideIndex = Number(number));
-    });
-    document.getElementById('dots').append(newDot);
+    listenerRemoveProject();
+//    var numberDot = projects.length;
+//    newDot = document.createElement('span');
+//    newDot.classList = 'dot';
+//    newDot.id = `${numberDot}`
+//    newDot.addEventListener("click", function () {
+//      var number = this.id;
+//      showSlides(slideIndex = Number(number));
+//    });
+//    document.getElementById('dots').append(newDot);
     document.getElementById('prev').style.display = "block";
     document.getElementById('next').style.display = "block";
     addColorForBtn();
 	};
 	readerD.readAsDataURL(fileD);
 });
+
+
+
+const base64StringP = JSON.parse(localStorage.getItem('projects'));
+if (base64StringP != [] && base64StringP != null) {
+  var i = 1;
+  base64StringP.forEach(element => {
+    var src = `data:image/png;base64,${element}`;
+    if (element[0].includes('it-project')) {
+      src = element[0];
+    }
+    newProject = document.createElement('div');
+    newProject.classList = 'mySlides fade';
+    newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    document.getElementById('projects-container').append(newProject);
+    listenerRemoveProject();
+//    var numberDot = i;
+//    newDot = document.createElement('span');
+//    newDot.classList = 'dot';
+//    newDot.id = `${numberDot}`
+//    newDot.addEventListener("click", function () {
+//      var number = this.id;
+//      showSlides(slideIndex = Number(number));
+//   });
+//    document.getElementById('dots').append(newDot);
+    document.getElementById('prev').style.display = "block";
+    document.getElementById('next').style.display = "block";
+    addColorForBtn();
+    i++;
+  });
+}
+
+function listenerRemoveProject() {
+  var dltP = document.getElementsByClassName('dltProject');
+
+  for (let b = 0; b < dltP.length; b++) {
+    const elementD = dltP[b];
+    elementD.addEventListener("click", function () {
+      var srcEl = elementD.parentElement.children[0].src;
+      elementD.parentElement.remove();
+      var projects = JSON.parse(localStorage.getItem('projects'));
+      var i = 0;
+      projects.forEach(element => {
+        if (element[0] == srcEl.replace('data:image/png;base64,', '') || srcEl.includes(element[0])) {projects.splice(i, 1)}
+        i++;
+        localStorage.setItem('projects', JSON.stringify(projects));
+      });
+    });
+  }
+}
 
 
 

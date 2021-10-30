@@ -16,7 +16,7 @@ function readText(theName, text, block, idOfBlock, classes) {
 readText('name', 'ФИО', 'h2', 'my-name', 'fio');
 readText('hb', 'дата рождения', 'p', 'my-name', 'hb');
 readText('sp', 'специальность', 'p', 'my-name', 'none-marging-and-padding');
-readText('biography', 'немного биографии бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла', 'p', 'my-name', 'biography');
+readText('biography', 'биография', 'p', 'my-name', 'biography');
 readText('phone', 'номер телефона', 'p', 'my-name', 'none-marging-and-padding');
 readText('dop', 'дополнительно (логин в инстаграме, скайпе и т.д.)', 'p', 'my-name', 'none-marging-and-padding');
 readText('email', 'почта', 'p', 'my-name', 'none-marging-and-padding');

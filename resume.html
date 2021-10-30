@@ -169,7 +169,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/main.js"></script>
+	<script ttype="text/javascript" src="js/kontent.js"></script>
 	<script>
 		var loadFile = function(event) {
 			const file = event.target.files[0];
@@ -186,8 +186,13 @@
 		if (base64String) {
 			var image = document.getElementById('output');
 			image.src = `data:image/png;base64,${base64String}`;
+			if (base64String.includes('jpg')) {
+				image.src = base64String;
+			}
 		}
+		//console.log(data[0].Employees);
 	</script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
