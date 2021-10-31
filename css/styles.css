@@ -438,7 +438,8 @@ a {
   width: 100%;
   text-align: center;
   margin-bottom: 20px;
-  color: white;
+  color: #001b5e;
+  font-size: 25px;
 }
 
 /* Точки/пули/индикаторы */
