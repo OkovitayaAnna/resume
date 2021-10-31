@@ -6,8 +6,8 @@ data = [{
     "phone": "+380(66)9902313",
     "dop": "skype: live:26ck4587v64n0ch3",
     "email": "ivanova.olga@gmail.com",
-    "work": [["2011-2015","Epam","?"],["2015-2021","?","?"]],
-    "school": [["1996-2007","?","?"],["2007-2012","?","?"]],
+    "work": [["2015-2021","?","?"],["2011-2015","Epam","?"]],
+    "school": [["2007-2012","?","?"],["1996-2007","?","?"]],
     "skills": [["HTML","80"],["CSS","60"],["JS","55"]],
     "avatar": "images/avatar.jpg",
     "diploms": [["images/diplom1.jpg"],["images/diplom2.jpg"],["images/diplom3.jpg"],["images/diplom4.jpg"]],
@@ -24,5 +24,7 @@ if (resume == false || !resume) {
             localStorage.setItem(key,JSON.stringify(dataOb[key]));
         }
     }
+    var hrefsLS = ["https://www.google.com", "https://www.google.com", "https://www.google.com"];
+    localStorage.setItem('hrefs', JSON.stringify(hrefsLS));
     localStorage.setItem('resume', true);
 }

@@ -55,3 +55,26 @@ for (let b = 0; b < yearsS.length; b++) {
         });
     });
 }
+
+//update hrefs
+var hrefsA = document.getElementsByClassName('text');
+
+for (let i = 0; i < hrefsA.length; i++) {
+    hrefsA[i].addEventListener("blur", function () {
+        var hrefsLS = JSON.parse(localStorage.getItem('hrefs'));
+        var projects = JSON.parse(localStorage.getItem('projects'));
+
+        var hrefsC = hrefsA[i].innerHTML;
+        for (let a = 0; a < projects.length; a++) {
+            if (projects[a][0] == hrefsA[i].parentElement.parentElement.children[0].getAttribute('src')) {
+                var hrefsId = a;
+            }
+        }
+        for (let l = 0; l < hrefsLS.length; l++) {
+            if (l == hrefsId) {
+                hrefsLS[l] = hrefsC;
+            }
+            createOrUpdate('hrefs', hrefsLS);
+        }
+    });
+}

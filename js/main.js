@@ -33,18 +33,18 @@ function myFunction(imgs) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
+  //var dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
+  //for (i = 0; i < dots.length; i++) {
+      //dots[i].className = dots[i].className.replace(" active", "");
+  //}
   if (slides[slideIndex-1]) {
     slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
+    //dots[slideIndex-1].className += " active";
   }
 }
 
@@ -158,7 +158,7 @@ function listenerRemoveDiplom() {
       var diploms = JSON.parse(localStorage.getItem('diploms'));
       var i = 0;
       diploms.forEach(element => {
-        if (element[0] == srcEl.replace('data:image/png;base64,', '')) {diploms.splice(i, 1)}
+        if (element[0] == srcEl.replace('data:image/png;base64,', '') || srcEl.includes(element[0])) {diploms.splice(i, 1)}
         i++;
         localStorage.setItem('diploms', JSON.stringify(diploms));
       });
@@ -222,12 +222,22 @@ crtPr.addEventListener("change", function (event) {
 
     newProject = document.createElement('div');
     newProject.classList = 'mySlides fade';
-    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div class="text"> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div> <a href="https://www.google.com" class="text"> https://www.google.com </a> </div> <button class="dltProject btn open-button"> × </button>`;
     if (eM == true) {
-      newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+      newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div> <a href="https://www.google.com" class="text" contentEditable=true> https://www.google.com </a> </div> <button class="dltProject btn open-button"> × </button>`;
     }
     document.getElementById('projects-container').append(newProject);
+    if (projects.length == 1) {
+      newProject.style.display = "block";
+    }
     listenerRemoveProject();
+    var hrefs = JSON.parse(localStorage.getItem('hrefs'));
+
+    if (hrefs == [] || hrefs == undefined || hrefs == null) {
+      hrefs = [];
+    }
+    hrefs.push('https://www.google.com');
+    localStorage.setItem('hrefs', JSON.stringify(hrefs));
 //    var numberDot = projects.length;
 //    newDot = document.createElement('span');
 //    newDot.classList = 'dot';
@@ -240,6 +250,7 @@ crtPr.addEventListener("change", function (event) {
     document.getElementById('prev').style.display = "block";
     document.getElementById('next').style.display = "block";
     addColorForBtn();
+    include("js/update.js");
 	};
 	readerD.readAsDataURL(fileD);
 });
@@ -248,20 +259,24 @@ crtPr.addEventListener("change", function (event) {
 
 const base64StringP = JSON.parse(localStorage.getItem('projects'));
 if (base64StringP != [] && base64StringP != null) {
-  var i = 1;
+  var i = 0;
   base64StringP.forEach(element => {
     var src = `data:image/png;base64,${element}`;
+    var href = JSON.parse(localStorage.getItem('hrefs'))[i];
     if (element[0].includes('it-project')) {
       src = element[0];
     }
     newProject = document.createElement('div');
     newProject.classList = 'mySlides fade';
-    newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div class="text"> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div> <a href="${href}" class="text"> ${href} </a> </div> <button class="dltProject btn open-button"> × </button>`;
     if (eM == true) {
-      newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+      newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div> <a href="${href}" class="text" contentEditable=true> ${href} </a> </div> <button class="dltProject btn open-button"> × </button>`;
     }
     document.getElementById('projects-container').append(newProject);
-    listenerRemoveProject();
+    if (i == 0) {
+      newProject.style.display = "block";
+    }
+      listenerRemoveProject();
 //    var numberDot = i;
 //    newDot = document.createElement('span');
 //    newDot.classList = 'dot';
@@ -274,6 +289,7 @@ if (base64StringP != [] && base64StringP != null) {
     document.getElementById('prev').style.display = "block";
     document.getElementById('next').style.display = "block";
     addColorForBtn();
+    include("js/update.js");
     i++;
   });
 }
@@ -285,13 +301,25 @@ function listenerRemoveProject() {
     const elementD = dltP[b];
     elementD.addEventListener("click", function () {
       var srcEl = elementD.parentElement.children[0].src;
-      elementD.parentElement.remove();
       var projects = JSON.parse(localStorage.getItem('projects'));
+      var hrefs = JSON.parse(localStorage.getItem('hrefs'));
       var i = 0;
       projects.forEach(element => {
-        if (element[0] == srcEl.replace('data:image/png;base64,', '') || srcEl.includes(element[0])) {projects.splice(i, 1)}
+        if (element[0] == srcEl.replace('data:image/png;base64,', '') || srcEl.includes(element[0])) {projects.splice(i, 1); hrefs.splice(i,1);}
         i++;
         localStorage.setItem('projects', JSON.stringify(projects));
+        localStorage.setItem('hrefs', JSON.stringify(hrefs));
+        if (projects.length == 0) {
+          document.getElementById('prev').style.display = "none";
+          document.getElementById('next').style.display = "none";
+        }
+        if (projects.length > 0 && elementD.parentElement.nextElementSibling) {
+          elementD.parentElement.nextElementSibling.style.display = "block";
+        }
+        if (projects.length > 0 && !elementD.parentElement.nextElementSibling) {
+          elementD.parentElement.previousElementSibling.style.display = "block";
+        }
+        elementD.parentElement.remove();
       });
     });
   }
