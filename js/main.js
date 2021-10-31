@@ -222,7 +222,10 @@ crtPr.addEventListener("change", function (event) {
 
     newProject = document.createElement('div');
     newProject.classList = 'mySlides fade';
-    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div class="text"> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    if (eM == true) {
+      newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    }
     document.getElementById('projects-container').append(newProject);
     listenerRemoveProject();
 //    var numberDot = projects.length;
@@ -253,7 +256,10 @@ if (base64StringP != [] && base64StringP != null) {
     }
     newProject = document.createElement('div');
     newProject.classList = 'mySlides fade';
-    newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div class="text"> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    if (eM == true) {
+      newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div class="text" contentEditable=true> ссылка </div> <button class="dltProject btn open-button"> × </button>`;
+    }
     document.getElementById('projects-container').append(newProject);
     listenerRemoveProject();
 //    var numberDot = i;
