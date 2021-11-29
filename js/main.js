@@ -48,7 +48,27 @@ function showSlides(n) {
   }
 }
 
+function plusSlidesP(n) {
+  showSlidesP(slideIndex += n);
+}
 
+function showSlidesP(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlidesP");
+  //var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  //for (i = 0; i < dots.length; i++) {
+      //dots[i].className = dots[i].className.replace(" active", "");
+  //}
+  if (slides[slideIndex-1]) {
+    slides[slideIndex-1].style.display = "block";
+    //dots[slideIndex-1].className += " active";
+  }
+}
 
 var hidePt = JSON.parse(localStorage.getItem('hideP'));
 var hideDt = JSON.parse(localStorage.getItem('hideD'));

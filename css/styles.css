@@ -405,6 +405,11 @@ a {
   width: 500px;
 }
 
+.mySlidesP {
+	display: none;
+	width: 500px;
+  }
+
 /* Вперед и назад кнопки */
 .prev, .next {
   display: none;
@@ -420,6 +425,30 @@ a {
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
+}
+
+.prevP, .nextP {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+  }
+
+.prevP:hover, .nextP:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+
+.nextP {
+	right: 0;
+	border-radius: 3px 0 0 3px;
 }
 
 /* Положение "next кнопки" справа */

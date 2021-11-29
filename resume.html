@@ -11,6 +11,14 @@
 	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<script language = "JavaScript">
+		var bigsize = "700"; //Размер большой картинки
+		var smallsize = "300"; //Размер маленькой картинки
+		function changeSizeImage(im) {
+		  if(im.height == bigsize) im.height = smallsize;
+		  else im.height = bigsize;
+		}
+	</script>
 </head>
 
 <body>
@@ -164,6 +172,21 @@
 					
 						<!-- Текст изображения -->
 						<div id="imgtext"></div>
+					</div>
+				</div>
+			</div>
+			<div class="flex">
+				<div class="man border">
+					<h2> Презентация </h2>
+					<!-- Контейнер слайд-шоу -->
+					<div class="slideshow-container">
+						<div class="mySlidesP fade"> <img src="images/diplom1.jpg" style="width:100%; height:400px"> </div>
+						<div class="mySlidesP fade"> <img src="images/diplom2.jpg" style="width:100%; height:400px"> </div>
+						<div class="mySlidesP fade"> <img src="images/diplom3.jpg" style="width:100%; height:400px"> </div>
+						<div class="mySlidesP fade"> <img src="images/diplom4.jpg" style="width:100%; height:400px"> </div>
+						<!-- Вперед и назад кнопки -->
+						<a class="prevP" onclick="plusSlidesP(-1)">&#10094;</a>
+						<a class="nextP" onclick="plusSlidesP(1)">&#10095;</a>
 					</div>
 				</div>
 			</div>
