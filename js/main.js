@@ -18,33 +18,24 @@ function myFunction(imgs) {
   var expandImg = document.getElementById("expandedImg");
   // Получить текст изображения
   var imgText = document.getElementById("imgtext");
-  // Используйте тот же src в развернутом изображении, что и изображение, нажатое на сетке
+  // Использовать тот же src в развернутом изображении, что и изображение, нажатое на сетке
   expandImg.src = imgs.src;
-  // Используйте значение атрибута alt кликабельного изображения в качестве текста внутри развернутого изображения
+  // Использовать значение атрибута alt в качестве текста внутри развернутого изображения
   imgText.innerHTML = imgs.alt;
   // Показать элемент контейнера (скрытый с помощью CSS)
   expandImg.parentElement.style.display = "block";
 }
 
-
-
-
-
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  //var dots = document.getElementsByClassName("dot");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
-  //for (i = 0; i < dots.length; i++) {
-      //dots[i].className = dots[i].className.replace(" active", "");
-  //}
   if (slides[slideIndex-1]) {
     slides[slideIndex-1].style.display = "block";
-    //dots[slideIndex-1].className += " active";
   }
 }
 
@@ -65,7 +56,7 @@ function showSlidesP(n) {
       //dots[i].className = dots[i].className.replace(" active", "");
   //}
   if (slides[slideIndex-1]) {
-    slides[slideIndex-1].style.display = "block";
+    slides[slideIndex-1].style.display = "flex";
     //dots[slideIndex-1].className += " active";
   }
 }
@@ -242,9 +233,9 @@ crtPr.addEventListener("change", function (event) {
 
     newProject = document.createElement('div');
     newProject.classList = 'mySlides fade';
-    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div> <a href="https://www.google.com" class="text"> https://www.google.com </a> </div> <button class="dltProject btn open-button"> × </button>`;
+    newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px; object-fit:contain"> <div> <a href="https://www.google.com" class="text"> https://www.google.com </a> </div> <button class="dltProject btn open-button"> × </button>`;
     if (eM == true) {
-      newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px"> <div> <a href="https://www.google.com" class="text" contentEditable=true> https://www.google.com </a> </div> <button class="dltProject btn open-button"> × </button>`;
+      newProject.innerHTML = `<img src="${srcP}"  style="width:100%; height:400px; object-fit:contain"> <div> <a href="https://www.google.com" class="text" contentEditable=true> https://www.google.com </a> </div> <button class="dltProject btn open-button"> × </button>`;
     }
     document.getElementById('projects-container').append(newProject);
     if (projects.length == 1) {
@@ -283,14 +274,14 @@ if (base64StringP != [] && base64StringP != null) {
   base64StringP.forEach(element => {
     var src = `data:image/png;base64,${element}`;
     var href = JSON.parse(localStorage.getItem('hrefs'))[i];
-    if (element[0].includes('it-project')) {
+    if (element[0].includes('project') || element[0].includes('resume')) {
       src = element[0];
     }
     newProject = document.createElement('div');
     newProject.classList = 'mySlides fade';
-    newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div> <a href="${href}" class="text"> ${href} </a> </div> <button class="dltProject btn open-button"> × </button>`;
+    newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px; object-fit:contain"> <div> <a href="${href}" class="text"> ${href} </a> </div> <button class="dltProject btn open-button"> × </button>`;
     if (eM == true) {
-      newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px"> <div> <a href="${href}" class="text" contentEditable=true> ${href} </a> </div> <button class="dltProject btn open-button"> × </button>`;
+      newProject.innerHTML = `<img src="${src}"  style="width:100%; height:400px; object-fit:contain"> <div> <a href="${href}" class="text" contentEditable=true> ${href} </a> </div> <button class="dltProject btn open-button"> × </button>`;
     }
     document.getElementById('projects-container').append(newProject);
     if (i == 0) {

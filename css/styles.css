@@ -402,12 +402,13 @@ a {
 /* Скрыть изображения по умолчанию */
 .mySlides {
   display: none;
-  width: 500px;
+  width: 100%;
 }
 
 .mySlidesP {
 	display: none;
-	width: 500px;
+	width: auto;
+	justify-content: center;
   }
 
 /* Вперед и назад кнопки */
